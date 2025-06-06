@@ -4,7 +4,7 @@ export const Hero = () => {
       {/* Container with background fallback */}
       <div
         className="absolute inset-0 w-full h-full"
-        style={{ backgroundColor: "#060606" }}
+        style={{ backgroundColor: "#0d0d0d" }}
       >
         <video
           className="absolute inset-0 w-full h-full object-cover object-[62%_25%] md:object-[70%_25%] lg:object-[72%_25%] xl:object-[78%_25%]"
@@ -16,9 +16,6 @@ export const Hero = () => {
           <source src="./src/assets/hero.mp4" type="video/mp4" />
         </video>
       </div>
-
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black/50"></div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">

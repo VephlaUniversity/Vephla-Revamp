@@ -162,7 +162,7 @@ export const Testimonials = () => {
   }, []);
 
   return (
-    <div className="bg-[#060606] text-white min-h-screen p-6 md:p-12">
+    <div className="bg-[#0d0d0d] text-white min-h-screen p-6 md:p-12">
       {/* Header */}
       <div className="max-w-7xl mx-auto mb-12">
         <h1 className="text-4xl md:text-6xl  mb-2">
@@ -192,13 +192,13 @@ export const Testimonials = () => {
                 key={`${setIndex}-${index}`}
                 className="p-6 hover:bg-[#1B1B1B]  transition-all duration-300 border-r-1 hover:border-r-1 hover:border-red-500 min-h-[500px] w-[392px] flex-shrink-0 flex flex-col justify-between cursor-pointer select-none"
               >
-                <div>
+                <div className="flex flex-col gap-[5rem]">
                   <p className="text-gray-400 text-sm mb-6 uppercase tracking-wide">
                     {testimonial.category}
                   </p>
 
                   {testimonial.isStatistic ? (
-                    <div className="mb-8">
+                    <div className="mb-8 flex flex-col justify-baseline">
                       <h2 className="text-6xl md:text-8xl font-light mb-4">
                         {testimonial.title}
                       </h2>

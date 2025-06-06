@@ -155,7 +155,7 @@ export const FAQInterface = () => {
   };
 
   return (
-    <div className="bg-[#060606] text-white min-h-screen py-12 px-4 md:px-8">
+    <div className="bg-[#0d0d0d] text-white min-h-screen py-12 px-4 md:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-left mb-12">

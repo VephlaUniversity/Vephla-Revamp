@@ -1,19 +1,22 @@
 import "./App.css";
 import { Footer } from "./components/Footer";
-import { Hero } from "./components/Hero";
 import { Nav } from "./components/Nav";
-import { FAQInterface } from "./components/FAQInterface";
-import { Testimonials } from "./components/Testimonial"
-
+import { Route, Routes, useLocation } from "react-router-dom";
+import { ContactPage } from "./components/contact/Contact";
+import { Home } from "./components/Home";
 
 function App() {
+  const location = useLocation();
+  const hideFooter = location.pathname === "/contact";
+
   return (
     <>
       <Nav />
-      <Hero />
-      <Testimonials />
-      <FAQInterface />
-      <Footer />
+      <Routes>
+        <Route path="/contact" element={<ContactPage />}></Route>
+        <Route path="/" element={<Home />}></Route>
+      </Routes>
+      {!hideFooter && <Footer />}
     </>
   );
 }

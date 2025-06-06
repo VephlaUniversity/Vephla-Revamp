@@ -1,8 +1,9 @@
 import { ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#060606] text-white py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8">
+    <footer className="bg-[#0d0d0d] text-white py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 lg:gap-12 mb-8 md:mb-12 lg:mb-16">
           {/* Quick Links */}
@@ -12,12 +13,12 @@ export const Footer = () => {
             </h3>
             <ul className="space-y-2 md:space-y-4">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
                 <a
@@ -36,12 +37,12 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/contact"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
               <li>
                 <a
