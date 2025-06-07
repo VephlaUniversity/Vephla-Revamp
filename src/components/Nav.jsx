@@ -1,4 +1,4 @@
-import logo from "/src/assets/images/favicon.png";
+import logo from "/src/assets/images/logo.png";
 import { useState } from "react";
 import {
   Menu,
@@ -26,38 +26,51 @@ export const Nav = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Function to close all dropdowns
+  const closeDropdowns = () => {
+    setIsSolutionsOpen(false);
+    setIsCareersOpen(false);
+    setIsMenuOpen(false);
+  };
+
   const solutions = [
     {
       icon: <LightbulbIcon className="w-6 h-6" />,
       title: "ENERGY INVESTMENT ADVISORY",
       description:
         "Investment portfolios in oil & gas, with strategic guidance",
+      link: "/energy",
     },
     {
       icon: <GraduationCap className="w-6 h-6" />,
       title: "TECH EDUCATION (VEPHLA UNI)",
       description: "Learn UI/UX, Data, Cybersecurity, Frontend & more",
+      link: "/vephlauni",
     },
     {
       icon: <BookOpen className="w-6 h-6" />,
       title: "LURNER",
       description: "Buy innovative self-growth books and learning materials",
+      link: "/lurner",
     },
     {
       icon: <Command className="w-6 h-6" />,
       title: "SOFTWARE & DATA SOLUTIONS",
       description: "Build custom software, platforms, and analytics tools",
+      link: "/solution",
     },
 
     {
       icon: <LucideShoppingBag className="w-6 h-6" />,
       title: "PRINTMLX (PREMIUM PRINTING)",
       description: "Order high-quality merch, packaging, and branded prints",
+      link: "/printmlx",
     },
     {
       icon: <CopySlashIcon className="w-6 h-6" />,
       title: "VEPHLA WEBLOG",
       description: "Read articles, product updates, and student projects",
+      link: "/weblog",
     },
   ];
 
@@ -66,29 +79,36 @@ export const Nav = () => {
       icon: <BookMarkedIcon className="w-6 h-6" />,
       title: "INSOURCE EXPERTISE",
       description: "Use your own team's skills to get work done",
+      link: "/insource expertise",
     },
     {
       icon: <Users className="w-6 h-6" />,
       title: "ACCESS THE TALENT PIPELINE",
       description: "Quickly find ready candidates for your projects",
+      link: "/talent pipeline",
     },
     {
       icon: <BriefcaseBusiness className="w-6 h-6" />,
       title: "JOIN A TECH COMMUNITY",
       description: "Connect with others, learn, and grow together",
+      link: "/tech community",
     },
   ];
 
   return (
-    <nav className="bg-[#0d0d0d] text-white fixed top-0 left-0 right-0 z-50">
+    <nav
+      className={`${
+        isCareersOpen || isSolutionsOpen ? "bg-[#353535]" : "bg-[#0d0d0d]"
+      } text-white fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ease-in-out`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-2">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <div className="flex items-center">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <Link to="/">
-                  <img src={logo} alt="" />{" "}
+              <div className="flex items-center justify-center">
+                <Link to="/" onClick={closeDropdowns}>
+                  <img src={logo} alt="" />
                 </Link>
               </div>
             </div>
@@ -96,7 +116,7 @@ export const Nav = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="lg:ml-10 flex items-baseline space-x-4 lg:space-x-8">
               {/* Solutions Dropdown */}
               <div className="relative">
                 <button
@@ -104,7 +124,7 @@ export const Nav = () => {
                     setIsSolutionsOpen(!isSolutionsOpen);
                     setIsCareersOpen(false);
                   }}
-                  className="flex items-center text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200 cursor-pointer"
+                  className="flex items-center text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-300 cursor-pointer"
                 >
                   Solutions
                   <ChevronDown
@@ -122,7 +142,7 @@ export const Nav = () => {
                     setIsCareersOpen(!isCareersOpen);
                     setIsSolutionsOpen(false);
                   }}
-                  className="flex items-center text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200 cursor-pointer"
+                  className="flex items-center text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-300 cursor-pointer"
                 >
                   Careers
                   <ChevronDown
@@ -137,6 +157,7 @@ export const Nav = () => {
               <Link
                 to="/contact"
                 className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200 cursor-pointer"
+                onClick={closeDropdowns}
               >
                 Contact Us
               </Link>
@@ -144,7 +165,7 @@ export const Nav = () => {
           </div>
 
           {/* CTA Button - Hidden on medium screens and below */}
-          <div className="hidden lg:block">
+          <div className="hidden md:block">
             <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer">
               Explore our solutions
             </button>
@@ -168,7 +189,7 @@ export const Nav = () => {
 
         {/* Desktop Solutions Mega Menu */}
         {isSolutionsOpen && (
-          <div className="hidden md:block absolute top-full left-0 w-full bg-[#353535] border-t border-gray-700 z-50">
+          <div className="hidden md:block absolute top-full left-0 w-full bg-[#353535] border-t border-gray-700 z-50 transition-all  duration-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
               <div className="mb-6">
                 <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-4">
@@ -176,8 +197,10 @@ export const Nav = () => {
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {solutions.map((solution, index) => (
-                    <div
+                    <Link
                       key={index}
+                      to={solution.link}
+                      onClick={closeDropdowns}
                       className="flex items-start space-x-4 p-4 rounded-lg  transition-colors duration-200 cursor-pointer group"
                     >
                       <div className="flex-shrink-0 text-white group-hover:text-red-500 transition-colors duration-200">
@@ -196,7 +219,7 @@ export const Nav = () => {
                           {solution.description}
                         </p>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -214,9 +237,11 @@ export const Nav = () => {
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {careers.map((career, index) => (
-                    <div
+                    <Link
                       key={index}
-                      className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-700 transition-colors duration-200 cursor-pointer group"
+                      to={career.link}
+                      onClick={closeDropdowns}
+                      className="flex items-start space-x-4 p-4 rounded-lg transition-colors duration-200 cursor-pointer group"
                     >
                       <div className="flex-shrink-0 text-white group-hover:text-red-500 transition-colors duration-200">
                         {career.icon}
@@ -234,7 +259,7 @@ export const Nav = () => {
                           {career.description}
                         </p>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -255,7 +280,7 @@ export const Nav = () => {
               >
                 Solutions
                 <ChevronDown
-                  className={`h-5 w-5 transition-transform ${
+                  className={`h-5 w-5 transition-transform duration-300 ${
                     isSolutionsOpen ? "rotate-180" : ""
                   }`}
                 />
@@ -268,8 +293,10 @@ export const Nav = () => {
                     </h3>
                   </div>
                   {solutions.map((solution, index) => (
-                    <div
+                    <Link
                       key={index}
+                      to={solution.link}
+                      onClick={closeDropdowns}
                       className="flex items-start space-x-3 p-3 rounded-lg cursor-pointer transition-colors duration-200 group"
                     >
                       <div className="flex-shrink-0 text-white group-hover:text-red-500 transition-colors duration-200">
@@ -288,7 +315,7 @@ export const Nav = () => {
                           {solution.description}
                         </p>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               )}
@@ -302,7 +329,7 @@ export const Nav = () => {
               >
                 Careers
                 <ChevronDown
-                  className={`h-5 w-5 transition-transform ${
+                  className={`h-5 w-5 transition-transform duration-300 ${
                     isCareersOpen ? "rotate-180" : ""
                   }`}
                 />
@@ -315,8 +342,10 @@ export const Nav = () => {
                     </h3>
                   </div>
                   {careers.map((career, index) => (
-                    <div
+                    <Link
                       key={index}
+                      to={career.link}
+                      onClick={closeDropdowns}
                       className="flex items-start space-x-3 p-3 rounded-lg cursor-pointer transition-colors duration-200 group"
                     >
                       <div className="flex-shrink-0 text-white group-hover:text-red-500 transition-colors duration-200">
@@ -335,7 +364,7 @@ export const Nav = () => {
                           {career.description}
                         </p>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               )}
@@ -346,7 +375,7 @@ export const Nav = () => {
               <Link
                 to="/contact"
                 className="block text-white px-3 py-3 text-lg font-medium border-b border-gray-700"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={closeDropdowns}
               >
                 Contact Us
               </Link>
