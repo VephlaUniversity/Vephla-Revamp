@@ -220,7 +220,7 @@ export const ContactPage = () => {
               </p>
             </div>
 
-            {/* Right Column - Form */}
+            {/*  Form */}
             <div>
               <div className="space-y-6">
                 {/* Services Selection */}
