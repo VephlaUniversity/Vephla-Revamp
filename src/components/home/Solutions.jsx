@@ -7,6 +7,7 @@ import {
   CopySlashIcon,
   ExternalLink,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Solutions = () => {
   const solutions = [
@@ -20,6 +21,7 @@ export const Solutions = () => {
         "Our analysts blend proprietary data models with on-the-ground expertise to safeguard returns and navigate market volatility. It's not just capital, it's calculated impact for those who trust us for disciplined, accurate strategies.",
       cta: "Direct Contact to Our Energy Advisors",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
+      link: "/energy",
     },
     {
       id: 2,
@@ -32,6 +34,7 @@ export const Solutions = () => {
       cta: "Request a Quote to Scale Business",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
       featured: true,
+      link: "/solution",
     },
     {
       id: 3,
@@ -43,6 +46,7 @@ export const Solutions = () => {
         "Our curriculum is co-developed with hiring managers at top firms, structured to provide graduates with ready knowledge for the industry market. We don't teach theory, we prepare industry-ready experts.",
       cta: "Enroll your Course at Vephla Uni",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
+      link: "/vephlauni",
     },
     {
       id: 4,
@@ -54,6 +58,7 @@ export const Solutions = () => {
         "Whether you're sharpening creative thinking, tackling a new skill, or leading a team, our materials give you practical steps to make progress today, so you're not just reading theory, you're applying it.",
       cta: "Browse Lurner Learning Resources",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
+      link: "/lurner",
     },
     {
       id: 5,
@@ -66,6 +71,7 @@ export const Solutions = () => {
       cta: "Explore Works at Print MLX",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
       featured: true,
+      link: "/printmlx",
     },
     {
       id: 6,
@@ -77,6 +83,7 @@ export const Solutions = () => {
         "Every week, we break down the trends that matter, new tools, student projects, and market shifts into articles you can read in minutes yet, keeping you informed, inspired, and ready to make smarter decisions.",
       cta: "Go to the Latest Insights",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
+      link: "/weblog",
     },
   ];
 
@@ -99,42 +106,44 @@ export const Solutions = () => {
                   solution.hoverColor
                 } ${solution.featured ? "lg:col-span-1" : ""}`}
               >
-                <div className="flex flex-col h-full">
-                  <div className="mb-6">
-                    <IconComponent
-                      className={`w-12 h-12 text-gray-400 transition-colors duration-300 ${
-                        solution.hoverColor.split(" ")[1]
-                      }`}
-                      strokeWidth={1.5}
-                    />
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-white mb-4 leading-tight">
-                    {solution.title}
-                  </h3>
-
-                  <p className="text-gray-300 mb-6 leading-relaxed flex-grow">
-                    {solution.description}
-                  </p>
-
-                  <p className="text-gray-400 text-sm mb-8 leading-relaxed">
-                    {solution.detailText}
-                  </p>
-
-                  <div className="mt-auto">
-                    <button className="flex items-center justify-between w-full text-gray-300 hover:text-white transition-colors duration-300 group-hover:text-white">
-                      <span className="text-sm font-medium">
-                        {solution.cta}
-                      </span>
-                      <ExternalLink
-                        className={`w-4 h-4 ml-2 ${
+                <Link to={solution.link}>
+                  <div className="flex flex-col h-full">
+                    <div className="mb-6">
+                      <IconComponent
+                        className={`w-12 h-12 text-gray-400 transition-colors duration-300 ${
                           solution.hoverColor.split(" ")[1]
                         }`}
                         strokeWidth={1.5}
                       />
-                    </button>
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-white mb-4 leading-tight">
+                      {solution.title}
+                    </h3>
+
+                    <p className="text-gray-300 mb-6 leading-relaxed flex-grow">
+                      {solution.description}
+                    </p>
+
+                    <p className="text-gray-400 text-sm mb-8 leading-relaxed">
+                      {solution.detailText}
+                    </p>
+
+                    <div className="mt-auto">
+                      <button className="flex items-center justify-between w-full text-gray-300 hover:text-white transition-colors duration-300 group-hover:text-white">
+                        <span className="text-sm font-medium">
+                          {solution.cta}
+                        </span>
+                        <ExternalLink
+                          className={`w-4 h-4 ml-2 ${
+                            solution.hoverColor.split(" ")[1]
+                          }`}
+                          strokeWidth={1.5}
+                        />
+                      </button>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
             );
           })}

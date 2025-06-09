@@ -30,17 +30,18 @@ function App() {
   return (
     <>
       <Nav />
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/printmlx" element={<PrintMLX />} />
-        <Route path="/lurner" element={<Lurner />} />
-        <Route path="/solution" element={<SoftwareSolution />} />
-        <Route path="/vephlauni" element={<VephlaUni />} />
-        <Route path="/energy" element={<Energy />} />
-        <Route path="/weblog" element={<Weblog />} />
-      </Routes>
-
+      <div className="app-container">
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/printmlx" element={<PrintMLX />} />
+          <Route path="/lurner" element={<Lurner />} />
+          <Route path="/solution" element={<SoftwareSolution />} />
+          <Route path="/vephlauni" element={<VephlaUni />} />
+          <Route path="/energy" element={<Energy />} />
+          <Route path="/weblog" element={<Weblog />} />
+        </Routes>
+      </div>
       {!hideFooter && <Footer />}
     </>
   );
