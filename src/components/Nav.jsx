@@ -16,6 +16,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -95,6 +96,82 @@ export const Nav = () => {
     },
   ];
 
+  // Animation variants
+  const dropdownVariants = {
+    hidden: {
+      opacity: 0,
+      y: -10,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+        staggerChildren: 0.05,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: -5,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.2,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const mobileMenuVariants = {
+    hidden: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const mobileDropdownVariants = {
+    hidden: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+        staggerChildren: 0.05,
+      },
+    },
+  };
+
   return (
     <nav
       className={`${
@@ -127,11 +204,12 @@ export const Nav = () => {
                   className="flex items-center text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-300 cursor-pointer"
                 >
                   Solutions
-                  <ChevronDown
-                    className={`ml-1 h-4 w-4 transition-transform duration-200 ${
-                      isSolutionsOpen ? "rotate-180" : ""
-                    }`}
-                  />
+                  <motion.div
+                    animate={{ rotate: isSolutionsOpen ? 180 : 0 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                  >
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </motion.div>
                 </button>
               </div>
 
@@ -145,11 +223,12 @@ export const Nav = () => {
                   className="flex items-center text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-300 cursor-pointer"
                 >
                   Careers
-                  <ChevronDown
-                    className={`ml-1 h-4 w-4 transition-transform duration-200 ${
-                      isCareersOpen ? "rotate-180" : ""
-                    }`}
-                  />
+                  <motion.div
+                    animate={{ rotate: isCareersOpen ? 180 : 0 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                  >
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </motion.div>
                 </button>
               </div>
 
@@ -178,218 +257,288 @@ export const Nav = () => {
               onClick={toggleMenu}
               className="text-gray-300 hover:text-white focus:outline-none focus:text-white"
             >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+              <AnimatePresence mode="wait" initial={false}>
+                {isMenuOpen ? (
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <X className="h-6 w-6" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Menu className="h-6 w-6" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </button>
           </div>
         </div>
 
         {/* Desktop Solutions Mega Menu */}
-        {isSolutionsOpen && (
-          <div className="hidden md:block absolute top-full left-0 w-full bg-[#353535] border-t border-gray-700 z-50 transition-all  duration-300">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-              <div className="mb-6">
-                <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-4">
-                  WHAT WE OFFER ACROSS INDUSTRIES
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {solutions.map((solution, index) => (
-                    <Link
-                      key={index}
-                      to={solution.link}
-                      onClick={closeDropdowns}
-                      className="flex items-start space-x-4 p-4 rounded-lg  transition-colors duration-200 cursor-pointer group"
-                    >
-                      <div className="flex-shrink-0 text-white group-hover:text-red-500 transition-colors duration-200">
-                        {solution.icon}
-                      </div>
-                      <div>
-                        <h4 className="text-white font-medium text-sm mb-2 group-hover:text-white pb-1 flex items-center">
-                          <span className="group-hover:border-b group-hover:border-white">
-                            {solution.title}
-                          </span>
-                          <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                            <ArrowRight className="w-4 h-4" />
-                          </span>
-                        </h4>
-                        <p className="text-[#ccc] text-sm leading-relaxed">
-                          {solution.description}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
+        <AnimatePresence>
+          {isSolutionsOpen && (
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={dropdownVariants}
+              className="hidden md:block absolute top-full left-0 w-full bg-[#353535] border-t border-gray-700 z-50"
+            >
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div className="mb-6">
+                  <motion.h3
+                    variants={itemVariants}
+                    className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-4"
+                  >
+                    WHAT WE OFFER ACROSS INDUSTRIES
+                  </motion.h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {solutions.map((solution, index) => (
+                      <motion.div key={index} variants={itemVariants}>
+                        <Link
+                          to={solution.link}
+                          onClick={closeDropdowns}
+                          className="flex items-start space-x-4 p-4 rounded-lg  transition-colors duration-200 cursor-pointer group"
+                        >
+                          <div className="flex-shrink-0 text-white group-hover:text-red-500 transition-colors duration-200">
+                            {solution.icon}
+                          </div>
+                          <div>
+                            <h4 className="text-white font-medium text-sm mb-2 group-hover:text-white pb-1 flex items-center">
+                              <span className="group-hover:border-b group-hover:border-white">
+                                {solution.title}
+                              </span>
+                              <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                <ArrowRight className="w-4 h-4" />
+                              </span>
+                            </h4>
+                            <p className="text-[#ccc] text-sm leading-relaxed">
+                              {solution.description}
+                            </p>
+                          </div>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Desktop Careers Mega Menu */}
-        {isCareersOpen && (
-          <div className="hidden md:block absolute top-full left-0 w-full bg-[#353535] border-t border-gray-700 z-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-              <div className="mb-6">
-                <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-4">
-                  TALENT ACQUISITION & COMMUNITY ENGAGEMENT
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {careers.map((career, index) => (
-                    <Link
-                      key={index}
-                      to={career.link}
-                      onClick={closeDropdowns}
-                      className="flex items-start space-x-4 p-4 rounded-lg transition-colors duration-200 cursor-pointer group"
-                    >
-                      <div className="flex-shrink-0 text-white group-hover:text-red-500 transition-colors duration-200">
-                        {career.icon}
-                      </div>
-                      <div>
-                        <h4 className="text-white font-medium text-sm mb-2 group-hover:text-white pb-1 flex items-center">
-                          <span className="group-hover:border-b group-hover:border-white">
-                            {career.title}
-                          </span>
-                          <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                            <ArrowRight className="w-4 h-4" />
-                          </span>
-                        </h4>
-                        <p className="text-[#CCC] text-sm leading-relaxed">
-                          {career.description}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
+        <AnimatePresence>
+          {isCareersOpen && (
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={dropdownVariants}
+              className="hidden md:block absolute top-full left-0 w-full bg-[#353535] border-t border-gray-700 z-50"
+            >
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div className="mb-6">
+                  <motion.h3
+                    variants={itemVariants}
+                    className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-4"
+                  >
+                    TALENT ACQUISITION & COMMUNITY ENGAGEMENT
+                  </motion.h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {careers.map((career, index) => (
+                      <motion.div key={index} variants={itemVariants}>
+                        <Link
+                          to={career.link}
+                          onClick={closeDropdowns}
+                          className="flex items-start space-x-4 p-4 rounded-lg transition-colors duration-200 cursor-pointer group"
+                        >
+                          <div className="flex-shrink-0 text-white group-hover:text-red-500 transition-colors duration-200">
+                            {career.icon}
+                          </div>
+                          <div>
+                            <h4 className="text-white font-medium text-sm mb-2 group-hover:text-white pb-1 flex items-center">
+                              <span className="group-hover:border-b group-hover:border-white">
+                                {career.title}
+                              </span>
+                              <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                <ArrowRight className="w-4 h-4" />
+                              </span>
+                            </h4>
+                            <p className="text-[#CCC] text-sm leading-relaxed">
+                              {career.description}
+                            </p>
+                          </div>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Mobile Navigation Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-[#353535] border-t border-gray-700 overflow-y-auto max-h-screen pb-[4rem]">
-          <div className="px-4 py-6">
-            {/* Solutions */}
-            <div className="mb-6">
-              <button
-                onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
-                className="flex items-center justify-between w-full text-white px-3 py-3 text-lg font-medium border-b border-gray-700"
-              >
-                Solutions
-                <ChevronDown
-                  className={`h-5 w-5 transition-transform duration-300 ${
-                    isSolutionsOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {isSolutionsOpen && (
-                <div className="mt-4 space-y-4">
-                  <div className="mb-4">
-                    <h3 className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-3">
-                      WHAT WE OFFER ACROSS INDUSTRIES
-                    </h3>
-                  </div>
-                  {solutions.map((solution, index) => (
-                    <Link
-                      key={index}
-                      to={solution.link}
-                      onClick={closeDropdowns}
-                      className="flex items-start space-x-3 p-3 rounded-lg cursor-pointer transition-colors duration-200 group"
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={mobileMenuVariants}
+            className="md:hidden bg-[#353535] border-t border-gray-700 overflow-hidden"
+          >
+            <div className="px-4 py-6">
+              {/* Solutions */}
+              <motion.div variants={itemVariants} className="mb-6">
+                <button
+                  onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
+                  className="flex items-center justify-between w-full text-white px-3 py-3 text-lg font-medium border-b border-gray-700"
+                >
+                  Solutions
+                  <motion.div
+                    animate={{ rotate: isSolutionsOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                    <ChevronDown className="h-5 w-5" />
+                  </motion.div>
+                </button>
+                <AnimatePresence>
+                  {isSolutionsOpen && (
+                    <motion.div
+                      initial="hidden"
+                      animate="visible"
+                      exit="hidden"
+                      variants={mobileDropdownVariants}
+                      className="mt-4 space-y-4 overflow-hidden"
                     >
-                      <div className="flex-shrink-0 text-white group-hover:text-red-500 transition-colors duration-200">
-                        {solution.icon}
-                      </div>
-                      <div>
-                        <h4 className="text-white font-medium text-sm mb-1 group-hover:text-white pb-1 flex items-center">
-                          <span className="group-hover:border-b group-hover:border-white">
-                            {solution.title}
-                          </span>
-                          <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                            <ArrowRight className="w-4 h-4" />
-                          </span>
-                        </h4>
-                        <p className="text-[#ccc] text-xs leading-relaxed">
-                          {solution.description}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+                      <motion.div variants={itemVariants} className="mb-4">
+                        <h3 className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-3">
+                          WHAT WE OFFER ACROSS INDUSTRIES
+                        </h3>
+                      </motion.div>
+                      {solutions.map((solution, index) => (
+                        <motion.div key={index} variants={itemVariants}>
+                          <Link
+                            to={solution.link}
+                            onClick={closeDropdowns}
+                            className="flex items-start space-x-3 p-3 rounded-lg cursor-pointer transition-colors duration-200 group"
+                          >
+                            <div className="flex-shrink-0 text-white group-hover:text-red-500 transition-colors duration-200">
+                              {solution.icon}
+                            </div>
+                            <div>
+                              <h4 className="text-white font-medium text-sm mb-1 group-hover:text-white pb-1 flex items-center">
+                                <span className="group-hover:border-b group-hover:border-white">
+                                  {solution.title}
+                                </span>
+                                <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                  <ArrowRight className="w-4 h-4" />
+                                </span>
+                              </h4>
+                              <p className="text-[#ccc] text-xs leading-relaxed">
+                                {solution.description}
+                              </p>
+                            </div>
+                          </Link>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
 
-            {/* Careers */}
-            <div className="mb-6">
-              <button
-                onClick={() => setIsCareersOpen(!isCareersOpen)}
-                className="flex items-center justify-between w-full text-white px-3 py-3 text-lg font-medium border-b border-gray-700"
-              >
-                Careers
-                <ChevronDown
-                  className={`h-5 w-5 transition-transform duration-300 ${
-                    isCareersOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {isCareersOpen && (
-                <div className="mt-4 space-y-4">
-                  <div className="mb-4">
-                    <h3 className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-3">
-                      TALENT ACQUISITION & COMMUNITY ENGAGEMENT
-                    </h3>
-                  </div>
-                  {careers.map((career, index) => (
-                    <Link
-                      key={index}
-                      to={career.link}
-                      onClick={closeDropdowns}
-                      className="flex items-start space-x-3 p-3 rounded-lg cursor-pointer transition-colors duration-200 group"
+              {/* Careers */}
+              <motion.div variants={itemVariants} className="mb-6">
+                <button
+                  onClick={() => setIsCareersOpen(!isCareersOpen)}
+                  className="flex items-center justify-between w-full text-white px-3 py-3 text-lg font-medium border-b border-gray-700"
+                >
+                  Careers
+                  <motion.div
+                    animate={{ rotate: isCareersOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                    <ChevronDown className="h-5 w-5" />
+                  </motion.div>
+                </button>
+                <AnimatePresence>
+                  {isCareersOpen && (
+                    <motion.div
+                      initial="hidden"
+                      animate="visible"
+                      exit="hidden"
+                      variants={mobileDropdownVariants}
+                      className="mt-4 space-y-4 overflow-hidden"
                     >
-                      <div className="flex-shrink-0 text-white group-hover:text-red-500 transition-colors duration-200">
-                        {career.icon}
-                      </div>
-                      <div>
-                        <h4 className="text-white font-medium text-sm mb-1 group-hover:text-white pb-1 flex items-center">
-                          <span className="group-hover:border-b group-hover:border-white">
-                            {career.title}
-                          </span>
-                          <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                            <ArrowRight className="w-4 h-4" />
-                          </span>
-                        </h4>
-                        <p className="text-[#ccc] text-xs leading-relaxed">
-                          {career.description}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+                      <motion.div variants={itemVariants} className="mb-4">
+                        <h3 className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-3">
+                          TALENT ACQUISITION & COMMUNITY ENGAGEMENT
+                        </h3>
+                      </motion.div>
+                      {careers.map((career, index) => (
+                        <motion.div key={index} variants={itemVariants}>
+                          <Link
+                            to={career.link}
+                            onClick={closeDropdowns}
+                            className="flex items-start space-x-3 p-3 rounded-lg cursor-pointer transition-colors duration-200 group"
+                          >
+                            <div className="flex-shrink-0 text-white group-hover:text-red-500 transition-colors duration-200">
+                              {career.icon}
+                            </div>
+                            <div>
+                              <h4 className="text-white font-medium text-sm mb-1 group-hover:text-white pb-1 flex items-center">
+                                <span className="group-hover:border-b group-hover:border-white">
+                                  {career.title}
+                                </span>
+                                <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                  <ArrowRight className="w-4 h-4" />
+                                </span>
+                              </h4>
+                              <p className="text-[#ccc] text-xs leading-relaxed">
+                                {career.description}
+                              </p>
+                            </div>
+                          </Link>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
 
-            {/* Contact Us */}
-            <div className="mb-8">
-              <Link
-                to="/contact"
-                className="block text-white px-3 py-3 text-lg font-medium border-b border-gray-700"
-                onClick={closeDropdowns}
-              >
-                Contact Us
-              </Link>
-            </div>
+              {/* Contact Us */}
+              <motion.div variants={itemVariants} className="mb-8">
+                <Link
+                  to="/contact"
+                  className="block text-white px-3 py-3 text-lg font-medium border-b border-gray-700"
+                  onClick={closeDropdowns}
+                >
+                  Contact Us
+                </Link>
+              </motion.div>
 
-            {/* Mobile CTA Button */}
-            <div className="px-3">
-              <button className="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer">
-                Explore our solutions
-              </button>
+              {/* Mobile CTA Button */}
+              <motion.div variants={itemVariants} className="px-3">
+                <button className="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer">
+                  Explore our solutions
+                </button>
+              </motion.div>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

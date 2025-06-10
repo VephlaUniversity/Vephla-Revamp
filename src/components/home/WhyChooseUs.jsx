@@ -3,7 +3,7 @@ export const AboutVephla = () => {
     <div className="min-h-screen bg-[#0d0d0d] text-white px-4 py-2 lg:py-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-16 lg:mb-24">
+        <div id="about" className="mb-16 lg:mb-24">
           <h1 className="text-4xl md:text-5xl lg:text-6xl">
             Why Choose{" "}
             <span className="text-red-500 font-normal">Vephla Group</span>?

@@ -10,6 +10,7 @@ import { SoftwareSolution } from "./components/solutionPages/SoftwareSolution";
 import { VephlaUni } from "./components/solutionPages/VephlaUni";
 import { Energy } from "./components/solutionPages/Energy";
 import { Weblog } from "./components/solutionPages/Weblog";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const location = useLocation();
@@ -31,16 +32,18 @@ function App() {
     <>
       <Nav />
       <div className="app-container">
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/printmlx" element={<PrintMLX />} />
-          <Route path="/lurner" element={<Lurner />} />
-          <Route path="/solution" element={<SoftwareSolution />} />
-          <Route path="/vephlauni" element={<VephlaUni />} />
-          <Route path="/energy" element={<Energy />} />
-          <Route path="/weblog" element={<Weblog />} />
-        </Routes>
+        <AnimatePresence exitBeforeEnter>
+          <Routes key={location.pathname} location={location}>
+            <Route index element={<Home />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/printmlx" element={<PrintMLX />} />
+            <Route path="/lurner" element={<Lurner />} />
+            <Route path="/solution" element={<SoftwareSolution />} />
+            <Route path="/vephlauni" element={<VephlaUni />} />
+            <Route path="/energy" element={<Energy />} />
+            <Route path="/weblog" element={<Weblog />} />
+          </Routes>
+        </AnimatePresence>
       </div>
       {!hideFooter && <Footer />}
     </>

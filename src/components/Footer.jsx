@@ -22,7 +22,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#about"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   About Us
@@ -62,52 +62,52 @@ export const Footer = () => {
             </h3>
             <ul className="space-y-2 md:space-y-4">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/energy"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Energy Investments
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/vephlauni"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Vephla University
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/printmlx"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   PrintMLX
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/lurner"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Lumer
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/qnduit"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Qnduit
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/weblog"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Tech Weblog
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

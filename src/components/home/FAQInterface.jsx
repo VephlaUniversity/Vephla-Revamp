@@ -1,9 +1,10 @@
 import { Plus, Minus } from "lucide-react";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const FAQInterface = () => {
   const [activeCategory, setActiveCategory] = useState("Energy");
-  const [expandedFAQ, setExpandedFAQ] = useState(0); // First FAQ expanded by default
+  const [expandedFAQ, setExpandedFAQ] = useState(0);
 
   const categories = [
     "Energy",
@@ -121,7 +122,7 @@ export const FAQInterface = () => {
           "We specialize in high-quality custom printing for merchandise, promotional items, corporate gifts, apparel, and branded materials. If you can imagine it, we likely print it.",
       },
       {
-        question: "What’s the turnaround time for orders?",
+        question: "What's the turnaround time for orders?",
         answer:
           "We specialize in high-quality custom printing for merchandise, promotional items, corporate gifts, apparel, and branded materials. If you can imagine it, we likely print it.",
       },
@@ -130,22 +131,22 @@ export const FAQInterface = () => {
       {
         question: "Can I contribute an article?",
         answer:
-          "We welcome qualified guest writers. Submit your pitch through our “Write for Us” page and our editorial team will review it.",
+          'We welcome qualified guest writers. Submit your pitch through our "Write for Us" page and our editorial team will review it.',
       },
       {
         question: "How often is the blog updated?",
         answer:
-          "We welcome qualified guest writers. Submit your pitch through our “Write for Us” page and our editorial team will review it.",
+          'We welcome qualified guest writers. Submit your pitch through our "Write for Us" page and our editorial team will review it.',
       },
       {
         question: "Is the content free to access?",
         answer:
-          "We welcome qualified guest writers. Submit your pitch through our “Write for Us” page and our editorial team will review it.",
+          'We welcome qualified guest writers. Submit your pitch through our "Write for Us" page and our editorial team will review it.',
       },
       {
         question: "How can I stay notified of new posts?",
         answer:
-          "We welcome qualified guest writers. Submit your pitch through our “Write for Us” page and our editorial team will review it.",
+          'We welcome qualified guest writers. Submit your pitch through our "Write for Us" page and our editorial team will review it.',
       },
     ],
   };
@@ -168,7 +169,7 @@ export const FAQInterface = () => {
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
           {categories.map((category) => (
-            <button
+            <motion.button
               key={category}
               onClick={() => {
                 setActiveCategory(category);
@@ -179,50 +180,81 @@ export const FAQInterface = () => {
                   ? "bg-red-500 text-white shadow-lg"
                   : "bg-[#1B1B1B] text-gray-300 hover:bg-[#1d1a1a] hover:text-white"
               }`}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               {category}
-            </button>
+            </motion.button>
           ))}
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-4">
-          {faqData[activeCategory]?.map((faq, index) => (
-            <div
-              key={index}
-              className="border-b border-gray-800 last:border-b-0"
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full py-6 px-2 flex justify-between items-center text-left hover:text-red-400 transition-colors duration-300 group"
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="space-y-4"
+          >
+            {faqData[activeCategory]?.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.3 }}
+                className="border-b border-gray-800 last:border-b-0"
               >
-                <span className="text-lg md:text-xl pr-4">{faq.question}</span>
-                <div className="flex-shrink-0">
-                  {expandedFAQ === index ? (
-                    <Minus className="w-6 h-6 text-red-500 group-hover:text-red-400" />
-                  ) : (
-                    <Plus className="w-6 h-6 text-gray-400 group-hover:text-red-400" />
-                  )}
-                </div>
-              </button>
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full py-6 px-2 flex justify-between items-center text-left hover:text-red-400 transition-colors duration-300 group"
+                >
+                  <span className="text-lg md:text-xl pr-4">
+                    {faq.question}
+                  </span>
+                  <motion.div
+                    className="flex-shrink-0"
+                    animate={{ rotate: expandedFAQ === index ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {expandedFAQ === index ? (
+                      <Minus className="w-6 h-6 text-red-500 group-hover:text-red-400" />
+                    ) : (
+                      <Plus className="w-6 h-6 text-gray-400 group-hover:text-red-400" />
+                    )}
+                  </motion.div>
+                </button>
 
-              {/* Expandable Answer */}
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  expandedFAQ === index
-                    ? "max-h-96 opacity-100"
-                    : "max-h-0 opacity-0"
-                }`}
-              >
-                <div className="pb-6 px-2">
-                  <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+                {/* Expandable Answer */}
+                <AnimatePresence>
+                  {expandedFAQ === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <motion.div
+                        initial={{ y: -10 }}
+                        animate={{ y: 0 }}
+                        exit={{ y: -10 }}
+                        transition={{ duration: 0.2, delay: 0.1 }}
+                        className="pb-6 px-2"
+                      >
+                        <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
