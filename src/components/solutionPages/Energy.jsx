@@ -3,7 +3,7 @@ import { AnimatedPage } from "../../AnimatedPage";
 export const Energy = () => {
   return (
     <AnimatedPage>
-      <div className="relative min-h-screen flex items-end justify-center overflow-hidden pb-6 ">
+      <div className="relative min-h-screen flex items-end justify-center overflow-hidden pb-6">
         {/* Background container with image and color */}
         <div
           className="absolute inset-0 w-full h-full bg-[#0d0d0d]"
