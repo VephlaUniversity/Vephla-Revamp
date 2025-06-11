@@ -147,7 +147,7 @@ export const Testimonials = () => {
   const handleScroll = () => {
     if (containerRef.current) {
       const scrollPosition = containerRef.current.scrollLeft;
-      const cardWidth = 320 + 24; // card width + margin
+      const cardWidth = 392; // card width + margin
       const newIndex = Math.round(scrollPosition / cardWidth);
       setCurrentIndex(Math.min(newIndex, totalTestimonials - 1));
     }
@@ -173,7 +173,7 @@ export const Testimonials = () => {
       </div>
 
       {/* Carousel Container */}
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto overflow-hidden">
         <div
           ref={containerRef}
           className="flex overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing bg-[#3F3F3F] rounded-lg"
