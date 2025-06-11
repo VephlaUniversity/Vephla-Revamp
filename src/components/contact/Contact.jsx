@@ -149,19 +149,6 @@ export const ContactPage = () => {
     }
 
     setIsSubmitting(false);
-
-    setTimeout(() => {
-      alert("Message sent successfully!");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-        services: [],
-        otherService: "",
-      });
-      setIsSubmitting(false);
-    }, 1000);
   };
 
   return (
