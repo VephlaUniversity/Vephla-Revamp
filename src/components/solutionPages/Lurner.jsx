@@ -8,7 +8,7 @@ export const Lurner = () => {
         <div
           className="absolute inset-0 w-full h-full bg-[#0d0d0d]"
           style={{
-            backgroundImage: "url('./src/assets/images/Lurner.png')",
+            backgroundImage: "url('/images/Lurner.png')",
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center center",

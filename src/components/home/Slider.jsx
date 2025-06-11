@@ -5,26 +5,26 @@ import "slick-carousel/slick/slick-theme.css";
 export const LogoSlider = () => {
   // Top row logos
   const topLogos = [
-    "/src/assets/images/1.png",
-    "/src/assets/images/2.png",
-    "/src/assets/images/3.png",
-    "/src/assets/images/4.png",
-    "/src/assets/images/5.png",
-    "/src/assets/images/6.png",
-    "/src/assets/images/7.png",
-    "/src/assets/images/8.png",
+    "/images/1.png",
+    "/images/2.png",
+    "/images/3.png",
+    "/images/4.png",
+    "/images/5.png",
+    "/images/6.png",
+    "/images/7.png",
+    "/images/8.png",
   ];
 
   // Bottom row logos
   const bottomLogos = [
-    "/src/assets/images/8.png",
-    "/src/assets/images/7.png",
-    "/src/assets/images/6.png",
-    "/src/assets/images/5.png",
-    "/src/assets/images/4.png",
-    "/src/assets/images/3.png",
-    "/src/assets/images/2.png",
-    "/src/assets/images/1.png",
+    "/images/8.png",
+    "/images/7.png",
+    "/images/6.png",
+    "/images/5.png",
+    "/images/4.png",
+    "/images/3.png",
+    "/images/2.png",
+    "/images/1.png",
   ];
 
   // Settings for the top slider (left to right)

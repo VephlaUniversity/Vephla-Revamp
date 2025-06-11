@@ -8,7 +8,7 @@ export const PrintMLX = () => {
         <div
           className="absolute inset-0 w-full h-full bg-[#0d0d0d]"
           style={{
-            backgroundImage: "url('./src/assets/images/PrintMLX.png')",
+            backgroundImage: "url('/images/PrintMLX.png')",
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center center",
