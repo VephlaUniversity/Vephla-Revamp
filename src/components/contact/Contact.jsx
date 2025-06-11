@@ -151,20 +151,21 @@ export const ContactPage = () => {
     setIsSubmitting(false);
   };
 
-  setIsSubmitting(true);
+    setIsSubmitting(true);
 
-  setTimeout(() => {
-    alert("Message sent successfully!");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-      services: [],
-      otherService: "",
-    });
-    setIsSubmitting(false);
-  }, 1000);
+    setTimeout(() => {
+      alert("Message sent successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+        services: [],
+        otherService: "",
+      });
+      setIsSubmitting(false);
+    }, 1000);
+  };
 
   return (
     <AnimatedPage>
@@ -430,3 +431,5 @@ export const ContactPage = () => {
     </AnimatedPage>
   );
 };
+
+export default ContactPage;
