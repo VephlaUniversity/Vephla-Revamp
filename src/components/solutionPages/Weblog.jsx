@@ -8,7 +8,7 @@ export const Weblog = () => {
         <div
           className="absolute inset-0 w-full h-full bg-[#0d0d0d]"
           style={{
-            backgroundImage: "url('./src/assets/images/weblog.png')",
+            backgroundImage: "url('/images/weblog.png')",
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center center",

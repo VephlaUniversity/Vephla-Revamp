@@ -8,7 +8,7 @@ export const Energy = () => {
         <div
           className="absolute inset-0 w-full h-full bg-[#0d0d0d]"
           style={{
-            backgroundImage: "url('./src/assets/images/energy.png')",
+            backgroundImage: "url('/images/energy.png')",
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center center",

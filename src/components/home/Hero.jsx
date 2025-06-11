@@ -13,7 +13,7 @@ export const Hero = () => {
           muted
           playsInline
         >
-          <source src="./src/assets/hero.mp4" type="video/mp4" />
+          <source src="hero.mp4" type="video/mp4" />
         </video>
       </div>
 
