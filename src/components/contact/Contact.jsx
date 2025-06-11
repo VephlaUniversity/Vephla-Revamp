@@ -149,9 +149,6 @@ export const ContactPage = () => {
     }
 
     setIsSubmitting(false);
-  };
-
-    setIsSubmitting(true);
 
     setTimeout(() => {
       alert("Message sent successfully!");
