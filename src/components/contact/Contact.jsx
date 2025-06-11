@@ -105,12 +105,51 @@ export const ContactPage = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateForm()) {
-      return;
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://vephla.com/backend/contact.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          services: formData.services,
+          otherService: formData.otherService,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          services: [],
+          otherService: "",
+        });
+      } else {
+        alert("Error: " + result.message);
+      }
+    } catch (err) {
+      console.error("Submit error:", err);
+      alert("An unexpected error occurred.");
     }
+
+    setIsSubmitting(false);
+  };
 
     setIsSubmitting(true);
 
