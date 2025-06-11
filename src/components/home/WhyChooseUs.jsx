@@ -42,7 +42,7 @@ export const AboutVephla = () => {
                   muted
                   playsInline
                 >
-                  <source src="whyChooseUs.mp4" type="video/mp4" />
+                  <source src="video/whyChooseUs.mp4" type="video/mp4" />
                 </video>
               </div>
             </div>
