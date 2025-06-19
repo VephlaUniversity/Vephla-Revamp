@@ -31,7 +31,7 @@ export const LogoSlider = () => {
   const topSliderSettings = {
     dots: false,
     infinite: true,
-    speed: 1500,
+    speed: 3000,
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
@@ -67,7 +67,7 @@ export const LogoSlider = () => {
   const bottomSliderSettings = {
     dots: false,
     infinite: true,
-    speed: 1500,
+    speed: 3000,
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,

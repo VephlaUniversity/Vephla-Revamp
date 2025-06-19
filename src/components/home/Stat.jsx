@@ -8,8 +8,8 @@ export const StatsSection = () => {
   const stats = [
     {
       id: 1,
-      number: 7381,
-      suffix: "+",
+      number: 8,
+      suffix: "K",
       label: "Clients",
       description:
         "Clients who have chosen us as their go-to strategic solution partner.",
@@ -26,8 +26,8 @@ export const StatsSection = () => {
     },
     {
       id: 3,
-      number: 4463,
-      suffix: "+",
+      number: 5,
+      suffix: "K",
       label: "Hours",
       description:
         "Of tailored consultations to ensure every project meets your exact needs.",

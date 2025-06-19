@@ -40,25 +40,25 @@ export const Nav = () => {
       title: "ENERGY INVESTMENT ADVISORY",
       description:
         "Investment portfolios in oil & gas, with strategic guidance",
-      link: "/energy",
+      link: "http://energies.vephla.com",
     },
     {
       icon: <GraduationCap className="w-6 h-6" />,
       title: "TECH EDUCATION (VEPHLA UNI)",
       description: "Learn UI/UX, Data, Cybersecurity, Frontend & more",
-      link: "/vephlauni",
+      link: "http://university.vephla.com",
     },
     {
       icon: <BookOpen className="w-6 h-6" />,
       title: "LURNER",
       description: "Buy innovative self-growth books and learning materials",
-      link: "/lurner",
+      link: "http://lurner.vephla.com",
     },
     {
       icon: <Command className="w-6 h-6" />,
       title: "SOFTWARE & DATA SOLUTIONS",
       description: "Build custom software, platforms, and analytics tools",
-      link: "/solution",
+      link: "http://zcriptta.vephla.com",
     },
 
     {
@@ -71,10 +71,9 @@ export const Nav = () => {
       icon: <CopySlashIcon className="w-6 h-6" />,
       title: "VEPHLA WEBLOG",
       description: "Read articles, product updates, and student projects",
-      link: "/weblog",
+      link: "http://daily.vephla.com",
     },
   ];
-
   const careers = [
     {
       icon: <BookMarkedIcon className="w-6 h-6" />,
@@ -245,9 +244,11 @@ export const Nav = () => {
 
           {/* CTA Button - Hidden on medium screens and below */}
           <div className="hidden md:block">
-            <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer">
-              Explore our solutions
-            </button>
+            <a href="#solutions">
+              <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer">
+                Explore our solutions
+              </button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -531,9 +532,11 @@ export const Nav = () => {
 
               {/* Mobile CTA Button */}
               <motion.div variants={itemVariants} className="px-3">
-                <button className="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer">
-                  Explore our solutions
-                </button>
+                <a href="#solutions">
+                  <button className="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer">
+                    Explore our solutions
+                  </button>
+                </a>
               </motion.div>
             </div>
           </motion.div>

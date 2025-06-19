@@ -4,8 +4,8 @@ export const AboutVephla = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div id="about" className="mb-16 lg:mb-24">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl">
-            Why Choose{" "}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+            Why Choose
             <span className="text-red-500 font-normal">Vephla Group</span>?
           </h1>
           {/* Decorative line */}

@@ -160,9 +160,9 @@ export const FAQInterface = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-left mb-12">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl mb-2">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl mb-2 font-bold">
             Your Questions
-            <span className="text-red-500 font-normal"> Answered</span>
+            <span className="text-red-500 font-bold"> Answered</span>
           </h1>
         </div>
 

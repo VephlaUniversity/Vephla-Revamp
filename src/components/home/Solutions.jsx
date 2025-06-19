@@ -21,7 +21,7 @@ export const Solutions = () => {
         "Our analysts blend proprietary data models with on-the-ground expertise to safeguard returns and navigate market volatility. It's not just capital, it's calculated impact for those who trust us for disciplined, accurate strategies.",
       cta: "Direct Contact to Our Energy Advisors",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
-      link: "/energy",
+      link: "http://energies.vephla.com",
     },
     {
       id: 2,
@@ -34,7 +34,7 @@ export const Solutions = () => {
       cta: "Request a Quote to Scale Business",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
       featured: true,
-      link: "/solution",
+      link: "http://zcriptta.vephla.com",
     },
     {
       id: 3,
@@ -46,7 +46,7 @@ export const Solutions = () => {
         "Our curriculum is co-developed with hiring managers at top firms, structured to provide graduates with ready knowledge for the industry market. We don't teach theory, we prepare industry-ready experts.",
       cta: "Enroll your Course at Vephla Uni",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
-      link: "/vephlauni",
+      link: "http://university.vephla.com",
     },
     {
       id: 4,
@@ -58,7 +58,7 @@ export const Solutions = () => {
         "Whether you're sharpening creative thinking, tackling a new skill, or leading a team, our materials give you practical steps to make progress today, so you're not just reading theory, you're applying it.",
       cta: "Browse Lurner Learning Resources",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
-      link: "/lurner",
+      link: "http://lurner.vephla.com",
     },
     {
       id: 5,
@@ -83,13 +83,13 @@ export const Solutions = () => {
         "Every week, we break down the trends that matter, new tools, student projects, and market shifts into articles you can read in minutes yet, keeping you informed, inspired, and ready to make smarter decisions.",
       cta: "Go to the Latest Insights",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
-      link: "/weblog",
+      link: "http://daily.vephla.com",
     },
   ];
 
   return (
     <div className="min-h-screen bg-[#0d0d0d] p-6 lg:p-12">
-      <div className="max-w-7xl mx-auto">
+      <div id="solutions" className="max-w-7xl mx-auto">
         <h1 className="text-4xl lg:text-5xl font-bold text-white mb-2">
           Our <span className="text-red-500">Solutions</span>
         </h1>
