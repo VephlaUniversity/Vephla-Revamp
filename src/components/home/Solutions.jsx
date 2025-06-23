@@ -106,7 +106,7 @@ export const Solutions = () => {
                   solution.hoverColor
                 } ${solution.featured ? "lg:col-span-1" : ""}`}
               >
-                <Link to={solution.link}>
+                <a href={solution.link}>
                   <div className="flex flex-col h-full">
                     <div className="mb-6">
                       <IconComponent
@@ -143,7 +143,7 @@ export const Solutions = () => {
                       </button>
                     </div>
                   </div>
-                </Link>
+                </a>
               </div>
             );
           })}

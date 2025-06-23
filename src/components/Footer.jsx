@@ -62,52 +62,52 @@ export const Footer = () => {
             </h3>
             <ul className="space-y-2 md:space-y-4">
               <li>
-                <Link
-                  to="http://energies.vephla.com"
+                <a
+                  href="http://energies.vephla.com"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Energy Investments
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="http://university.vephla.com"
+                <a
+                  href="http://university.vephla.com"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Vephla University
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/printmlx"
+                <a
+                  href="/printmlx"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   PrintMLX
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="http://lurner.vephla.com"
+                <a
+                  href="http://lurner.vephla.com"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Lumer
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="http://qnduit.vephla.com"
+                <a
+                  href="http://qnduit.vephla.com"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Qnduit
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="https://daily.vephla.com"
+                <a
+                  href="https://daily.vephla.com"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Tech Weblog
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

@@ -5,18 +5,13 @@ export const Hero = () => {
     <div className="relative min-h-screen flex items-end justify-center overflow-hidden pb-6">
       {/* Container with background fallback */}
       <div
-        className="absolute inset-0 w-full h-full"
-        style={{ backgroundColor: "#0d0d0d" }}
+        className="absolute inset-0 bg-contain bg-center bg-no-repeat m-24"
+        style={{
+          backgroundImage: "url('/images/energy.png')",
+        }}
       >
-        <video
-          className="absolute inset-0 w-full h-full object-cover object-[62%_25%] md:object-[70%_25%] lg:object-[72%_25%] xl:object-[78%_25%]"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src="video/hero.mp4" type="video/mp4" />
-        </video>
+        {/* Dark Overlay to maintain readability */}
+        <div className="absolute inset-0 bg-[#0d0d0d]/60"></div>
       </div>
 
       {/* Content */}

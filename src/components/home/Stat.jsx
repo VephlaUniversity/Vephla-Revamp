@@ -9,7 +9,7 @@ export const StatsSection = () => {
     {
       id: 1,
       number: 8,
-      suffix: "K",
+      suffix: "K+",
       label: "Clients",
       description:
         "Clients who have chosen us as their go-to strategic solution partner.",
@@ -18,7 +18,7 @@ export const StatsSection = () => {
     {
       id: 2,
       number: 372,
-      suffix: "",
+      suffix: "+",
       label: "Projects",
       description:
         "Successfully launched with valuable experiences and proven track record.",
@@ -27,7 +27,7 @@ export const StatsSection = () => {
     {
       id: 3,
       number: 5,
-      suffix: "K",
+      suffix: "K+",
       label: "Hours",
       description:
         "Of tailored consultations to ensure every project meets your exact needs.",
@@ -36,7 +36,7 @@ export const StatsSection = () => {
     {
       id: 4,
       number: 38,
-      suffix: "",
+      suffix: "+",
       label: "Experts",
       description:
         "Delivering deep domain knowledge and hands-on collaboration on projects.",

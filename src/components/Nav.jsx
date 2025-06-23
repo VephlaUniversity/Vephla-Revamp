@@ -306,8 +306,8 @@ export const Nav = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {solutions.map((solution, index) => (
                       <motion.div key={index} variants={itemVariants}>
-                        <Link
-                          to={solution.link}
+                        <a
+                          href={solution.link}
                           onClick={closeDropdowns}
                           className="flex items-start space-x-4 p-4 rounded-lg  transition-colors duration-200 cursor-pointer group"
                         >
@@ -327,7 +327,7 @@ export const Nav = () => {
                               {solution.description}
                             </p>
                           </div>
-                        </Link>
+                        </a>
                       </motion.div>
                     ))}
                   </div>
@@ -358,8 +358,8 @@ export const Nav = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {careers.map((career, index) => (
                       <motion.div key={index} variants={itemVariants}>
-                        <Link
-                          to={career.link}
+                        <a
+                          href={career.link}
                           onClick={closeDropdowns}
                           className="flex items-start space-x-4 p-4 rounded-lg transition-colors duration-200 cursor-pointer group"
                         >
@@ -379,7 +379,7 @@ export const Nav = () => {
                               {career.description}
                             </p>
                           </div>
-                        </Link>
+                        </a>
                       </motion.div>
                     ))}
                   </div>
@@ -431,8 +431,8 @@ export const Nav = () => {
                       </motion.div>
                       {solutions.map((solution, index) => (
                         <motion.div key={index} variants={itemVariants}>
-                          <Link
-                            to={solution.link}
+                          <a
+                            href={solution.link}
                             onClick={closeDropdowns}
                             className="flex items-start space-x-3 p-3 rounded-lg cursor-pointer transition-colors duration-200 group"
                           >
@@ -452,7 +452,7 @@ export const Nav = () => {
                                 {solution.description}
                               </p>
                             </div>
-                          </Link>
+                          </a>
                         </motion.div>
                       ))}
                     </motion.div>
@@ -490,8 +490,8 @@ export const Nav = () => {
                       </motion.div>
                       {careers.map((career, index) => (
                         <motion.div key={index} variants={itemVariants}>
-                          <Link
-                            to={career.link}
+                          <a
+                            href={career.link}
                             onClick={closeDropdowns}
                             className="flex items-start space-x-3 p-3 rounded-lg cursor-pointer transition-colors duration-200 group"
                           >
@@ -511,7 +511,7 @@ export const Nav = () => {
                                 {career.description}
                               </p>
                             </div>
-                          </Link>
+                          </a>
                         </motion.div>
                       ))}
                     </motion.div>
