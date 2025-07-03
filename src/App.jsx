@@ -5,6 +5,9 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { ContactPage } from "./components/contact/Contact";
 import { Home } from "./components/Home";
 import { AnimatePresence } from "framer-motion";
+import { TermsAndService } from "./components/Terms";
+import { PrivacyPolicy } from "./components/Privacy";
+import { About } from "./components/about/About";
 
 function App() {
   const location = useLocation();
@@ -19,6 +22,9 @@ function App() {
           <Routes key={location.pathname} location={location}>
             <Route index element={<Home />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/terms" element={<TermsAndService />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
             {/* Catch-all for 404 */}
             <Route
               path="*"

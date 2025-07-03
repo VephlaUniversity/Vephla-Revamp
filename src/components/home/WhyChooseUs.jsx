@@ -4,7 +4,7 @@ export const AboutVephla = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div id="about" className="mb-16 lg:mb-24">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
             Why Choose
             <span className="text-red-500 font-bold"> Vephla Group</span>?
           </h1>
@@ -17,16 +17,16 @@ export const AboutVephla = () => {
           {/* Left side - Text content */}
           <div className="space-y-8 lg:pr-8">
             <h2 className="text-2xl md:text-3xl lg:text-4xl leading-relaxed">
-              You don't have to figure it out alone, Vephla connects the dots
+              You Don’t Have to figure it out Alone, Vephla Connects the Dots
             </h2>
 
             <p className="text-lg md:text-xl leading-relaxed text-gray-300 ">
-              At Vephla, we believe innovation should be grounded in results.
-              Whether it's investing in the future of energy through oil and gas
-              portfolios, building practical technology solutions, or equipping
-              people with the skills to grow, we focus on what truly moves the
-              needle. That's what sets us apart, and why more people choose to
-              grow with us.
+              At Vephla Group, we turn bold ideas into lasting impact. Whether
+              it's investing in energy through our oil and gas arm, building
+              smart tech products, developing skilled talent, or growing vibrant
+              tech communities, we align capital, expertise, and opportunity to
+              help people and businesses thrive. That’s the power of the Vephla
+              ecosystem, and why more visionaries choose to grow with us.
             </p>
           </div>
         </div>

@@ -20,13 +20,15 @@ export const Hero = () => {
           Empowering <span className="text-red-500">Innovation</span> Across
           Energy,
           <br className="hidden sm:block" />
-          Technology, And Media
+          Technology, And Digital Ecosystems
         </h1>
 
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4">
-          From portfolio management to full-scale development and quality tech
-          <br className="hidden sm:block" />
-          education, we partner with you to drive measurable growth.
+          From building and scaling products to delivering smart funding, oil
+          and gas solutions, Talent Development, AI platforms, and
+          <br className="hidden sm:block" /> workforce development, we partner
+          with innovators, communities, and enterprises to drive measurable
+          impact across industries.
         </p>
 
         {/* Buttons */}
@@ -36,9 +38,11 @@ export const Hero = () => {
               Explore our solutions
             </button>
           </a>
-          <button className="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white hover:text-black font-semibold py-3 sm:py-3 px-6 sm:px-8 rounded-lg transition-all duration-300  hover:shadow-2xl hover:shadow-white/25 text-sm sm:text-base lg:text-lg cursor-pointer">
-            Partner with Vephla
-          </button>
+          <Link to="/contact">
+            <button className="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white hover:text-black font-semibold py-3 sm:py-3 px-6 sm:px-8 rounded-lg transition-all duration-300  hover:shadow-2xl hover:shadow-white/25 text-sm sm:text-base lg:text-lg cursor-pointer">
+              Partner with Vephla
+            </button>
+          </Link>
         </div>
       </div>
     </div>

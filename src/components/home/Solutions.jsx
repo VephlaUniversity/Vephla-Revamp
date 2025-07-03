@@ -6,8 +6,9 @@ import {
   LucideShoppingBag,
   CopySlashIcon,
   ExternalLink,
+  Network,
+  LinkIcon,
 } from "lucide-react";
-import { Link } from "react-router-dom";
 
 export const Solutions = () => {
   const solutions = [
@@ -21,7 +22,7 @@ export const Solutions = () => {
         "Our analysts blend proprietary data models with on-the-ground expertise to safeguard returns and navigate market volatility. It's not just capital, it's calculated impact for those who trust us for disciplined, accurate strategies.",
       cta: "Direct Contact to Our Energy Advisors",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
-      link: "http://energies.vephla.com",
+      link: "https://energies.vephla.com",
     },
     {
       id: 2,
@@ -34,7 +35,7 @@ export const Solutions = () => {
       cta: "Request a Quote to Scale Business",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
       featured: true,
-      link: "http://zcriptta.vephla.com",
+      link: "https://zcriptta.vephla.com",
     },
     {
       id: 3,
@@ -46,7 +47,7 @@ export const Solutions = () => {
         "Our curriculum is co-developed with hiring managers at top firms, structured to provide graduates with ready knowledge for the industry market. We don't teach theory, we prepare industry-ready experts.",
       cta: "Enroll your Course at Vephla Uni",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
-      link: "http://university.vephla.com",
+      link: "https://university.vephla.com",
     },
     {
       id: 4,
@@ -58,7 +59,7 @@ export const Solutions = () => {
         "Whether you're sharpening creative thinking, tackling a new skill, or leading a team, our materials give you practical steps to make progress today, so you're not just reading theory, you're applying it.",
       cta: "Browse Lurner Learning Resources",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
-      link: "http://lurner.vephla.com",
+      link: "https://lurner.vephla.com",
     },
     {
       id: 5,
@@ -71,7 +72,7 @@ export const Solutions = () => {
       cta: "Explore Works at Print MLX",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
       featured: true,
-      link: "/printmlx",
+      link: "https://printmlx.vephla.com",
     },
     {
       id: 6,
@@ -83,7 +84,31 @@ export const Solutions = () => {
         "Every week, we break down the trends that matter, new tools, student projects, and market shifts into articles you can read in minutes yet, keeping you informed, inspired, and ready to make smarter decisions.",
       cta: "Go to the Latest Insights",
       hoverColor: "hover:border-red-500 group-hover:text-red-500",
-      link: "http://daily.vephla.com",
+      link: "https://daily.vephla.com",
+    },
+    {
+      id: 7,
+      icon: Network,
+      title: "VNCX - Where Talents Meets Opportunity",
+      description:
+        "Whether you're looking to hire professionals or join a team, VCNX helps you connect, collaborate, and grow with confidence.",
+      detailText:
+        "VNCX is your trusted platform to find and connect with top professionals or find your next opportunity. We streamline the hiring and networking process, empowering you to build meaningful collaborations and advance your career with confidence.",
+      cta: "Explore VNCX Opportunities and Talent",
+      hoverColor: "hover:border-red-500 group-hover:text-red-500",
+      link: "https://vncx.vephla.com",
+    },
+    {
+      id: 8,
+      icon: LinkIcon,
+      title: "Qnduit - Connecting Talents, Creating Opportunities",
+      description:
+        "A community pipeline committed to bridging the gap between Tech Talents and the Job Market",
+      detailText:
+        "Qnduit bridges the gap between tech talents and the job market, creating a vibrant community where opportunities meet skills. Join us to connect, collaborate, and turn your potential into success.",
+      cta: "Join the Qnduit Community Today",
+      hoverColor: "hover:border-red-500 group-hover:text-red-500",
+      link: "https://qnduit.vephla.com",
     },
   ];
 

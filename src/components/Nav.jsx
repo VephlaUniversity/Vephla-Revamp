@@ -14,6 +14,8 @@ import {
   LucideShoppingBag,
   CopySlashIcon,
   ArrowRight,
+  Network,
+  LinkIcon,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -65,7 +67,7 @@ export const Nav = () => {
       icon: <LucideShoppingBag className="w-6 h-6" />,
       title: "PRINTMLX (PREMIUM PRINTING)",
       description: "Order high-quality merch, packaging, and branded prints",
-      link: "/printmlx",
+      link: "https://printmlx.vephla.com",
     },
     {
       icon: <CopySlashIcon className="w-6 h-6" />,
@@ -73,7 +75,20 @@ export const Nav = () => {
       description: "Read articles, product updates, and student projects",
       link: "http://daily.vephla.com",
     },
+    {
+      icon: <Network className="w-6 h-6" />,
+      title: "VNCX",
+      description: "Connect, collaborate, and grow with confidence",
+      link: "http://vncx.vephla.com",
+    },
+    {
+      icon: <LinkIcon className="w-6 h-6" />,
+      title: "QNDUIT",
+      description: "Bridging th egap between Tech Talents and the Job Market",
+      link: "http://qnduit.vephla.com",
+    },
   ];
+
   const careers = [
     {
       icon: <BookMarkedIcon className="w-6 h-6" />,
@@ -88,10 +103,10 @@ export const Nav = () => {
       link: "/talent pipeline",
     },
     {
-      icon: <BriefcaseBusiness className="w-6 h-6" />,
+      icon: <Network className="w-6 h-6" />,
       title: "JOIN A TECH COMMUNITY",
       description: "Connect with others, learn, and grow together",
-      link: "/tech community",
+      link: "https://vncx.vephla.com",
     },
   ];
 
@@ -295,7 +310,7 @@ export const Nav = () => {
               variants={dropdownVariants}
               className="hidden md:block absolute top-full left-0 w-full bg-[#353535] border-t border-gray-700 z-50"
             >
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ">
                 <div className="mb-6">
                   <motion.h3
                     variants={itemVariants}
@@ -303,7 +318,7 @@ export const Nav = () => {
                   >
                     WHAT WE OFFER ACROSS INDUSTRIES
                   </motion.h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
                     {solutions.map((solution, index) => (
                       <motion.div key={index} variants={itemVariants}>
                         <a
@@ -398,7 +413,7 @@ export const Nav = () => {
             animate="visible"
             exit="hidden"
             variants={mobileMenuVariants}
-            className="md:hidden bg-[#353535] border-t border-gray-700 overflow-hidden"
+            className="md:hidden bg-[#353535] border-t border-gray-700 max-h-[calc(100vh-4rem)] overflow-y-auto"
           >
             <div className="px-4 py-6">
               {/* Solutions */}
@@ -422,7 +437,7 @@ export const Nav = () => {
                       animate="visible"
                       exit="hidden"
                       variants={mobileDropdownVariants}
-                      className="mt-4 space-y-4 overflow-hidden"
+                      className="mt-4 space-y-4"
                     >
                       <motion.div variants={itemVariants} className="mb-4">
                         <h3 className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-3">
@@ -481,7 +496,7 @@ export const Nav = () => {
                       animate="visible"
                       exit="hidden"
                       variants={mobileDropdownVariants}
-                      className="mt-4 space-y-4 overflow-hidden"
+                      className="mt-4 space-y-4"
                     >
                       <motion.div variants={itemVariants} className="mb-4">
                         <h3 className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-3">
