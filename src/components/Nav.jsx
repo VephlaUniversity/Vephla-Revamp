@@ -42,25 +42,25 @@ export const Nav = () => {
       title: "ENERGY INVESTMENT ADVISORY",
       description:
         "Investment portfolios in oil & gas, with strategic guidance",
-      link: "http://energies.vephla.com",
+      link: "https://energies.vephla.com",
     },
     {
       icon: <GraduationCap className="w-6 h-6" />,
       title: "TECH EDUCATION (VEPHLA UNI)",
       description: "Learn UI/UX, Data, Cybersecurity, Frontend & more",
-      link: "http://university.vephla.com",
+      link: "https://university.vephla.com",
     },
     {
       icon: <BookOpen className="w-6 h-6" />,
       title: "LURNER",
       description: "Buy innovative self-growth books and learning materials",
-      link: "http://lurner.vephla.com",
+      link: "https://lurner.vephla.com",
     },
     {
       icon: <Command className="w-6 h-6" />,
       title: "SOFTWARE & DATA SOLUTIONS",
       description: "Build custom software, platforms, and analytics tools",
-      link: "http://zcriptta.vephla.com",
+      link: "https://zcriptta.vephla.com",
     },
 
     {
@@ -71,21 +71,21 @@ export const Nav = () => {
     },
     {
       icon: <CopySlashIcon className="w-6 h-6" />,
-      title: "VEPHLA WEBLOG",
+      title: "VEPHLA DAILYS",
       description: "Read articles, product updates, and student projects",
-      link: "http://daily.vephla.com",
+      link: "https://daily.vephla.com",
     },
     {
       icon: <Network className="w-6 h-6" />,
       title: "VNCX",
       description: "Connect, collaborate, and grow with confidence",
-      link: "http://vncx.vephla.com",
+      link: "https://vncx.vephla.com",
     },
     {
       icon: <LinkIcon className="w-6 h-6" />,
       title: "QNDUIT",
       description: "Bridging th egap between Tech Talents and the Job Market",
-      link: "http://qnduit.vephla.com",
+      link: "https://qnduit.vephla.com",
     },
   ];
 
@@ -94,13 +94,13 @@ export const Nav = () => {
       icon: <BookMarkedIcon className="w-6 h-6" />,
       title: "INSOURCE EXPERTISE",
       description: "Use your own team's skills to get work done",
-      link: "/insource expertise",
+      link: "mailto:qnduit@vephlagroup.com",
     },
     {
       icon: <Users className="w-6 h-6" />,
       title: "ACCESS THE TALENT PIPELINE",
       description: "Quickly find ready candidates for your projects",
-      link: "/talent pipeline",
+      link: "mailto:qnduit@vephlagroup.com",
     },
     {
       icon: <Network className="w-6 h-6" />,
@@ -245,6 +245,15 @@ export const Nav = () => {
                   </motion.div>
                 </button>
               </div>
+
+              {/* About Us */}
+              <Link
+                to="/about"
+                className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200 cursor-pointer"
+                onClick={closeDropdowns}
+              >
+                About Us
+              </Link>
 
               {/* Contact Us */}
               <Link
@@ -534,6 +543,16 @@ export const Nav = () => {
                 </AnimatePresence>
               </motion.div>
 
+              {/* About Us */}
+              <motion.div variants={itemVariants} className="mb-8">
+                <Link
+                  to="/about"
+                  className="block text-white px-3 py-3 text-lg font-medium border-b border-gray-700"
+                  onClick={closeDropdowns}
+                >
+                  About Us
+                </Link>
+              </motion.div>
               {/* Contact Us */}
               <motion.div variants={itemVariants} className="mb-8">
                 <Link

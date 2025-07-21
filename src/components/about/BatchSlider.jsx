@@ -7,6 +7,7 @@ const branches = [
     description:
       "Our energy investment team. We help clients invest wisely in oil and gas portfolios, with expert advisors guiding every step.",
     number: "01",
+    link: "https://energies.vephla.com",
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const branches = [
     description:
       "We train the next generation of tech professionals through practical, mentorship programs in design, software, and data.",
     number: "02",
+    link: "https://university.vephla.com",
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ const branches = [
     description:
       "We build custom digital solutions for startups, teams, and enterprises that need reliable, high-performing platforms.",
     number: "03",
+    link: "https://zcriptta.vephla.com",
   },
   {
     id: 4,
@@ -28,6 +31,7 @@ const branches = [
     description:
       "Our custom merchandise and printing service. From branded T-shirts to personalized items, we deliver high-quality prints that stand out.",
     number: "04",
+    link: "https://printmlx.vephla.com",
   },
   {
     id: 5,
@@ -42,6 +46,23 @@ const branches = [
     description:
       "A career and job platform for all. Users can find jobs, apply with ease, prepare for interviews, and grow their careers.",
     number: "06",
+    link: "https://vncx.vephla.com",
+  },
+  {
+    id: 7,
+    name: "Vephla Daily",
+    description:
+      "The Vephla Dailys delivers clear, concise insights on technology, business, and education. It's where busy professionals go to stay informed without the fluff.",
+    number: "07",
+    link: "https://qnduit.vephla.com",
+  },
+  {
+    id: 8,
+    name: "Lurner Dome",
+    description:
+      "Your go-to library for growth-focused learning tools. We curate each book and resource with hands-on exercises and real-world examples.",
+    number: "08",
+    link: "https://lurner.vephla.com",
   },
 ];
 
@@ -91,6 +112,12 @@ export const BatchSlider = () => {
                   <p className="text-gray-300 text-base md:text-lg lg:text-xl leading-relaxed w-100">
                     {currentBranch.description}
                   </p>
+                  <a
+                    href={currentBranch.link}
+                    className="text-white underline hover:text-red-500 text-base md:text-lg lg:text-xl leading-relaxed w-100 transition-colors duration-200"
+                  >
+                    Visit page
+                  </a>
                 </div>
               </div>
 
@@ -122,6 +149,12 @@ export const BatchSlider = () => {
                   <p className="text-gray-300 text-base leading-relaxed">
                     {branch.description}
                   </p>
+                  <a
+                    href={currentBranch.link}
+                    className="text-white underline hover:text-red-500 text-base md:text-lg lg:text-xl leading-relaxed w-100 transition-colors duration-200"
+                  >
+                    Visit page
+                  </a>
                 </div>
               </div>
             ))}

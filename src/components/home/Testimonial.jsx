@@ -68,9 +68,9 @@ export const Testimonials = () => {
           position: "Founder, Ignite MindSpace",
         },
         {
-          category: "VEPHLA WEBLOG",
+          category: "VEPHLA Dailys",
           title:
-            "Vephla Weblog keeps me plugged into what matters. From spotlighting student innovations to breaking down real trends in tech and business, it's more than news, it's signal in the noise.",
+            "Vephla Dailys keeps me plugged into what matters. From spotlighting student innovations to breaking down real trends in tech and business, it's more than news, it's signal in the noise.",
           author: "Richard E.",
           position: "Product Strategist",
         },
@@ -94,9 +94,9 @@ export const Testimonials = () => {
           position: "Founder, Ignite MindSpace",
         },
         {
-          category: "VEPHLA WEBLOG (TECH INSIGHTS)",
+          category: "VEPHLA DAILYS (TECH INSIGHTS)",
           title:
-            "Vephla Weblog keeps me plugged into what matters. From spotlighting student innovations to breaking down real trends in tech and business, it's more than news, it's signal in the noise.",
+            "Vephla Dailys keeps me plugged into what matters. From spotlighting student innovations to breaking down real trends in tech and business, it's more than news, it's signal in the noise.",
           author: "Richard E.",
           position: "Product Strategist & Startup Advisor",
         },

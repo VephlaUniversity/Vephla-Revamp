@@ -37,12 +37,12 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/about"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Resources
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -56,7 +56,7 @@ export const Footer = () => {
               <li>
                 <a
                   target="_blank"
-                  href="http://energies.vephla.com"
+                  href="https://energies.vephla.com"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Energy Investments
@@ -65,7 +65,7 @@ export const Footer = () => {
               <li>
                 <a
                   target="_blank"
-                  href="http://university.vephla.com"
+                  href="https://university.vephla.com"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Vephla University
@@ -74,7 +74,7 @@ export const Footer = () => {
               <li>
                 <a
                   target="_blank"
-                  href="/printmlx"
+                  href="https://printmlx.vephla.com"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   PrintMLX
@@ -83,7 +83,7 @@ export const Footer = () => {
               <li>
                 <a
                   target="_blank"
-                  href="http://lurner.vephla.com"
+                  href="https://lurner.vephla.com"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Lumer
@@ -92,7 +92,7 @@ export const Footer = () => {
               <li>
                 <a
                   target="_blank"
-                  href="http://qnduit.vephla.com"
+                  href="https://qnduit.vephla.com"
                   className="text-gray-300 hover:text-white transition-colors text-sm md:text-base"
                 >
                   Qnduit
@@ -179,10 +179,10 @@ export const Footer = () => {
                 +234-701-361-7059
               </p>
               <a
-                href="mailto:Hello@Vephlagroup.com"
+                href="mailto:Hello@Vephla.com"
                 className="text-gray-300 hover:text-white transition-colors underline text-sm md:text-base break-all"
               >
-                Hello@Vephlagroup.com
+                Hello@Vephla.com
               </a>
             </div>
           </div>
@@ -194,21 +194,9 @@ export const Footer = () => {
             </h3>
             <div className="space-y-4 md:space-y-6 text-gray-300 text-xs md:text-sm">
               <div>
-                <p className="font-medium text-white">West Africa 1:</p>
-                <p>No 2, Itesiwaju Street, Akoka, Yaba.</p>
-                <p>Lagos, Nigeria</p>
-              </div>
-
-              <div>
-                <p className="font-medium text-white">West Africa 2:</p>
+                <p className="font-medium text-white">West Africa:</p>
                 <p>No 21,ComMunity Rd, Lagos Mainland,</p>
                 <p>Lagos.</p>
-              </div>
-
-              <div>
-                <p className="font-medium text-white">Annex:</p>
-                <p>900 Stinson Way, West Palm Beach, Florida,</p>
-                <p>United States. 33411.</p>
               </div>
 
               <div>

@@ -16,19 +16,20 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-6 sm:mb-8 leading-tight px-2">
+        <h1 className="text-2xl md:text-3xl lg:text-3xl xl:text-5xl font-bold text-white mb-6 sm:mb-8 leading-tight px-2">
           Empowering <span className="text-red-500">Innovation</span> Across
           Energy,
           <br className="hidden sm:block" />
           Technology, And Digital Ecosystems
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4">
-          From building and scaling products to delivering smart funding, oil
-          and gas solutions, Talent Development, AI platforms, and
-          <br className="hidden sm:block" /> workforce development, we partner
-          with innovators, communities, and enterprises to drive measurable
-          impact across industries.
+        <p className="text-base sm:text-lg md:text-xl lg:text-xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4">
+          We are a conglomerate focused on building and scaling innovative
+          solutions across key sectors. From smart funding and oil & gas
+          solutions to AI platforms, talent development,
+          <br className="hidden sm:block" /> and workforce transformation, we
+          collaborate with innovators, communities, and enterprises to drive
+          meaningful, measurable impact across industries.
         </p>
 
         {/* Buttons */}

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const AboutVephla = () => {
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-white px-4 py-2 lg:py-4">
@@ -26,7 +28,13 @@ export const AboutVephla = () => {
               smart tech products, developing skilled talent, or growing vibrant
               tech communities, we align capital, expertise, and opportunity to
               help people and businesses thrive. That’s the power of the Vephla
-              ecosystem, and why more visionaries choose to grow with us.
+              ecosystem, and why more visionaries choose to grow with us. &nbsp;
+              <Link
+                to="/about"
+                className="text-white underline hover:text-red-500 text-base md:text-lg lg:text-xl leading-relaxed w-100 transition-colors duration-200"
+              >
+                Read more
+              </Link>
             </p>
           </div>
         </div>

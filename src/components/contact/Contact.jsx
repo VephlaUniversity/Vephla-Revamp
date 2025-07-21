@@ -21,7 +21,7 @@ export const ContactPage = () => {
     "Investment Advisory",
     "Printing Services (PrintMLX)",
     "Educational (Lurner Dome)",
-    "Blog Insights (Vephla Weblog)",
+    "Blog Insights (Vephla Dailys)",
     "Career & Mentorship",
     "General Inquiry",
     "Other",
@@ -174,10 +174,10 @@ export const ContactPage = () => {
                 </h3>
                 <div className="space-y-3">
                   <a
-                    href="mailto:Hello@vephlagroup.com"
+                    href="mailto:hello@vephla.com"
                     className="inline-flex items-center text-white hover:text-red-400 transition-colors underline"
                   >
-                    Hello@vephlagroup.com <Mails className="w-5 h-5 ml-2" />
+                    Hello@vephla.com <Mails className="w-5 h-5 ml-2" />
                   </a>{" "}
                   <br />
                   <a
@@ -195,7 +195,7 @@ export const ContactPage = () => {
                   JOIN OUR TALENT COMMUNITY
                 </h3>
                 <a
-                  href="#"
+                  href="mailto:careers@vephla.com"
                   className="inline-flex items-center text-white hover:text-red-400 transition-colors underline"
                 >
                   Explore Career Opportunities
@@ -224,7 +224,7 @@ export const ContactPage = () => {
                   NEED A QUOTE OR CUSTOM PLAN?
                 </h3>
                 <a
-                  href="#"
+                  href="mailto:hello@vephla.com"
                   className="inline-flex items-center text-white hover:text-red-400 transition-colors underline"
                 >
                   Request a Custom Quote
@@ -415,5 +415,3 @@ export const ContactPage = () => {
     </AnimatedPage>
   );
 };
-
-export default ContactPage;

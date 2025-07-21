@@ -29,7 +29,7 @@ export const Solutions = () => {
       icon: Command,
       title: "Tech Software & Data Solutions",
       description:
-        "Our 58 + engineers have shipped over 200 enterprise platforms, from automated workflows to real-time analytics dashboards. Solutions into every line of code.",
+        "Our 58+ engineers have shipped over 200 enterprise platforms, from automated workflows to real-time analytics dashboards. Solutions into every line of code.",
       detailText:
         "When downtime is not an option and performance, security, scalability, and seamless integration matters, companies turn to Vephla for software solutions that solve real business problems, and scale production.",
       cta: "Request a Quote to Scale Business",
@@ -77,9 +77,9 @@ export const Solutions = () => {
     {
       id: 6,
       icon: CopySlashIcon,
-      title: "Vephla Weblog for Decision-Makers",
+      title: "Vephla Dailys for Decision-Makers",
       description:
-        "The Vephla Weblog delivers clear, concise insights on technology, business, and education. It's where busy professionals go to stay informed without the fluff.",
+        "The Vephla Dailys delivers clear, concise insights on technology, business, and education. It's where busy professionals go to stay informed without the fluff.",
       detailText:
         "Every week, we break down the trends that matter, new tools, student projects, and market shifts into articles you can read in minutes yet, keeping you informed, inspired, and ready to make smarter decisions.",
       cta: "Go to the Latest Insights",

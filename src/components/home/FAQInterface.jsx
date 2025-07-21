@@ -12,7 +12,7 @@ export const FAQInterface = () => {
     "Vephla Uni",
     "Lurner Dome",
     "Print MLX",
-    "Vephla Weblog",
+    "Vephla Dailys",
   ];
 
   const faqData = {
@@ -41,112 +41,85 @@ export const FAQInterface = () => {
     ],
     Softwares: [
       {
-        question: "How long does it take to build a custom software solution??",
-        answer:
-          "Timelines vary by complexity. A typical mid-sized project (web app or dashboard) takes 8-12 weeks from kickoff to MVP release",
-      },
-      {
         question: "What technologies do your team specialize in?",
-        answer:
-          "Timelines vary by complexity. A typical mid-sized project (web app or dashboard) takes 8-12 weeks from kickoff to MVP release",
+        answer: `At <Strong>Vephla Group</strong>, our teams specialize in a wide array of modern technologies across software development, cloud solutions, AI, cybersecurity, and digital transformation. We bring deep expertise to every project, training, or consulting engagement.Our teams are composed of certified professionals and specialists with real-world implementation experience across Africa, Europe, and North America.`,
       },
       {
         question: "How do you ensure ongoing support?",
-        answer:
-          "Timelines vary by complexity. A typical mid-sized project (web app or dashboard) takes 8-12 weeks from kickoff to MVP release.",
+        answer: `At <Strong>Vephla Group</strong>, we’re committed to long-term success for our clients, partners, and learners. We don’t stop at delivery—we ensure ongoing support through structured systems and responsive engagement. Need tailored support or have specific SLA requirements?  <a href="https://zcriptta.com/contact.htm" class="text-red-500 hover:text-red-600 underline">Contact us</a>.`,
       },
       {
         question: "Can you integrate with our in-house systems?",
-        answer:
-          "Timelines vary by complexity. A typical mid-sized project (web app or dashboard) takes 8-12 weeks from kickoff to MVP release.",
+        answer: `<Strong>Yes, Vephla Group can integrate seamlessly with your in-house systems</strong>. Whether you’re using legacy platforms or modern cloud-based tools, our engineering and consulting teams are experienced in working within a wide range of enterprise environments.<Strong>Want to discuss your current system architecture or integration roadmap?</strong> Schedule a <a href="https://zcriptta.com/contact.htm" class="text-red-500 hover:text-red-600 underline">free consultation</a>.`,
       },
     ],
     "Vephla Uni": [
       {
-        question: "What's the format of Vephla Uni courses?",
-        answer:
-          "We offer a mix of self-paced video modules, live online workshops, and hands-on projects reviewed by industry mentors.",
-      },
-      {
         question: "Do you provide job placement support?",
-        answer:
-          "We offer a mix of self-paced video modules, live online workshops, and hands-on projects reviewed by industry mentors.",
+        answer: `While we cannot guarantee job placement for every student, Vephla University is deeply committed to helping our students transition into their professional careers. We actively recommend top-performing students for <strong>internships</strong> and <strong>entry-level roles</strong> through our extensive network of industry partners. Additionally, we host <strong>graduate fairs</strong> and provide career coaching sessions to help you prepare for job interviews, improve your resume, and sharpen your networking skills. Our focus is on equipping you with the practical, hands-on skills that employers are looking for, giving you an edge in the job market. Many of our past students have successfully secured internships and roles shortly after graduation, thanks to the combination of the skills they gained and the support we provide. Our dedicated career services team is available to assist you in your job search, and we continue to offer support even after you’ve completed your course.`,
       },
       {
         question: "Can I learn part-time while working?",
-        answer:
-          "We offer a mix of self-paced video modules, live online workshops, and hands-on projects reviewed by industry mentors.",
+        answer: `Yes, Vephla Uni is designed to support part-time learning for busy professionals and students with other commitments. Our programs are flexible and accessible, allowing you to balance your education with work, family, or other responsibilities.Whether you're working full-time or managing a busy schedule, Vephla Uni makes it possible to learn on your terms. Still have questions about part-time learning? Contact our <a href="https://www.vephlauni.com/contact" class="text-red-500 hover:text-red-600 underline">Admissions Team</a>.`,
       },
       {
         question: "What certification will I receive?",
-        answer:
-          "We offer a mix of self-paced video modules, live online workshops, and hands-on projects reviewed by industry mentors.",
+        answer: `Upon successful completion of your program, you will receive an American-recognized certification from Vephla Uni.This certificate validates your skills and knowledge in your chosen field and can be used to enhance your resume, LinkedIn profile, or job applications. Looking for a sample certificate or more details about accreditation? View Our 
+          <a href="https://www.vephlauni.com/accreditation" class="text-red-500 hover:text-red-600 underline">Accreditation Page</a>.`,
       },
     ],
     "Lurner Dome": [
       {
-        question: "What age or experience level are Lurner materials for?",
-        answer:
-          "Our resources span from motivated beginners to experienced professionals—each product's description specifies the ideal audience.",
-      },
-      {
         question: "Are these digital downloads or physical books?",
         answer:
-          "Our resources span from motivated beginners to experienced professionals—each product's description specifies the ideal audience.",
+          "Most of our learning materials and resources are delivered as digital downloads by default.",
       },
       {
         question: "Can organizations buy in bulk?",
         answer:
-          "Our resources span from motivated beginners to experienced professionals—each product's description specifies the ideal audience.",
+          "Yes, organizations can purchase our products and services in bulk. Whether you're planning a large-scale training rollout, corporate gifting, or team development initiative, we offer tailored solutions to meet your goals at scale.",
       },
       {
         question: "Do your resources include exercises or assessments?",
         answer:
-          "Our resources span from motivated beginners to experienced professionals—each product's description specifies the ideal audience.",
+          "No, our standard learning resources do not include built-in exercises or assessments. They are designed primarily for self-paced learning, team reference, or foundational instruction.",
       },
     ],
     "Print MLX": [
       {
-        question: "What types of printing services does PrintMLX offer?",
-        answer:
-          "We specialize in high-quality custom printing for merchandise, promotional items, corporate gifts, apparel, and branded materials. If you can imagine it, we likely print it.",
-      },
-      {
         question: "Can I order in bulk for events or corporate campaigns?",
         answer:
-          "We specialize in high-quality custom printing for merchandise, promotional items, corporate gifts, apparel, and branded materials. If you can imagine it, we likely print it.",
+          "Yes, Vephla Group offers bulk ordering solutions for organizations running events, training initiatives, or corporate campaigns. Whether you’re planning a company-wide upskilling program, onboarding event, conference, or branded learning campaign—we’ve got you covered.",
       },
       {
         question: "Do you offer design assistance for print-ready files?",
         answer:
-          "We specialize in high-quality custom printing for merchandise, promotional items, corporate gifts, apparel, and branded materials. If you can imagine it, we likely print it.",
+          "Yes, Vephla Group offers professional design assistance for print-ready files to support your events, campaigns, training materials, and branded assets.",
       },
       {
         question: "What's the turnaround time for orders?",
         answer:
-          "We specialize in high-quality custom printing for merchandise, promotional items, corporate gifts, apparel, and branded materials. If you can imagine it, we likely print it.",
+          "Turnaround time depends on the type of service or product you’re ordering, but we always prioritize speed without compromising quality.",
       },
     ],
-    "Vephla Weblog": [
+    "Vephla Dailys": [
       {
         question: "Can I contribute an article?",
-        answer:
-          'We welcome qualified guest writers. Submit your pitch through our "Write for Us" page and our editorial team will review it.',
+        answer: `Kindly send a mail to  <a href="mailto:daily@vephla.com" class="text-red-500 hover:text-red-600 underline">Vephla Daily</a>.`,
       },
       {
-        question: "How often is the blog updated?",
+        question: "What does vephla daily talk about?",
         answer:
-          'We welcome qualified guest writers. Submit your pitch through our "Write for Us" page and our editorial team will review it.',
+          "Our blog features diverse categories including Energy, Technology News, Oil & Gas, Design, EdTech, and Sports, reflecting the breadth of Vephla Group’s interests and expertise.",
       },
       {
         question: "Is the content free to access?",
         answer:
-          'We welcome qualified guest writers. Submit your pitch through our "Write for Us" page and our editorial team will review it.',
+          "Yes, all content on the Daily Vephla blog is completely free to access.There are no paywalls, subscriptions, or login requirements. You can read articles, insights, and news updates anytime, directly from the blog—whether you're browsing on desktop or mobile.",
       },
       {
         question: "How can I stay notified of new posts?",
-        answer:
-          'We welcome qualified guest writers. Submit your pitch through our "Write for Us" page and our editorial team will review it.',
+        answer: `You can stay up to date with new content from the Daily Vephla blog by subscribing to the newsletter. Simply enter your email address in the subscription box located on the blog page. Visit: <a href="https://daily.vephla.com/news-blog" class="text-red-500 hover:text-red-600 underline">Our news blog</a> and scroll to the subscription section to sign up.`,
       },
     ],
   };
@@ -244,9 +217,10 @@ export const FAQInterface = () => {
                         transition={{ duration: 0.2, delay: 0.1 }}
                         className="pb-6 px-2"
                       >
-                        <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-                          {faq.answer}
-                        </p>
+                        <div
+                          className="text-gray-300 text-base md:text-lg leading-relaxed"
+                          dangerouslySetInnerHTML={{ __html: faq.answer }}
+                        />
                       </motion.div>
                     </motion.div>
                   )}
