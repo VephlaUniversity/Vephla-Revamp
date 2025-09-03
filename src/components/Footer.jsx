@@ -184,6 +184,13 @@ export const Footer = () => {
               >
                 Hello@Vephla.com
               </a>
+              <br />
+              <a
+                href="mailto:Emicentre0@gmail.com"
+                className="text-gray-300 hover:text-white transition-colors underline text-sm md:text-base break-all"
+              >
+                Emicentre0@gmail.com
+              </a>
             </div>
           </div>
 
@@ -195,7 +202,7 @@ export const Footer = () => {
             <div className="space-y-4 md:space-y-6 text-gray-300 text-xs md:text-sm">
               <div>
                 <p className="font-medium text-white">West Africa:</p>
-                <p>No 21,ComMunity Rd, Lagos Mainland,</p>
+                <p>51, Olarenwaju Street, Akoka, Lagos Mainland</p>
                 <p>Lagos.</p>
               </div>
 

@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,13 +34,6 @@ export const Testimonials = () => {
             "Vephla's advisory team helped us navigate a volatile energy market with confidence. Their insights into oil and gas portfolios weren't just smart, they were strategic. We've seen steady growth since onboarding.",
           author: "Tunde M.",
           position: "Private Energy Portfolio Manager",
-        },
-        {
-          category: "TECH EDUCATION",
-          title:
-            "Enrolling in Vephla Uni's UI/UX track changed everything. The curriculum was real-world, the mentors were responsive, and I landed a paid internship before graduation. It wasn't just a course, it was a launchpad.",
-          author: "Fatima B.",
-          position: "Junior Product Designer",
         },
       ],
     },
@@ -153,6 +147,28 @@ export const Testimonials = () => {
     }
   };
 
+  const scrollToTestimonial = (index) => {
+    if (containerRef.current) {
+      const cardWidth = 392;
+      containerRef.current.scrollTo({
+        left: index * cardWidth,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handlePrevious = () => {
+    const newIndex = Math.max(0, currentIndex - 1);
+    setCurrentIndex(newIndex);
+    scrollToTestimonial(newIndex);
+  };
+
+  const handleNext = () => {
+    const newIndex = Math.min(totalTestimonials - 1, currentIndex + 1);
+    setCurrentIndex(newIndex);
+    scrollToTestimonial(newIndex);
+  };
+
   useEffect(() => {
     const container = containerRef.current;
     if (container) {
@@ -165,7 +181,7 @@ export const Testimonials = () => {
     <div className="bg-[#0d0d0d] text-white min-h-screen p-6 md:p-12">
       {/* Header */}
       <div className="max-w-7xl mx-auto mb-12">
-        <h1 className="text-4xl md:text-6xl  mb-2 font-bold">
+        <h1 className="text-4xl md:text-6xl mb-2 font-bold">
           Honest Feedback From{" "}
           <span className="text-red-500">Valued Clients</span>
         </h1>
@@ -190,7 +206,7 @@ export const Testimonials = () => {
             set.testimonials.map((testimonial, index) => (
               <div
                 key={`${setIndex}-${index}`}
-                className="p-6 hover:bg-[#1B1B1B]  transition-all duration-300 border-r-1 hover:border-r-1 hover:border-red-500 min-h-[500px] w-[392px] flex-shrink-0 flex flex-col justify-between cursor-pointer select-none"
+                className="p-6 hover:bg-[#1B1B1B] transition-all duration-300 border-r-1 hover:border-r-1 hover:border-red-500 min-h-[500px] w-[392px] flex-shrink-0 flex flex-col justify-between cursor-pointer select-none"
               >
                 <div className="flex flex-col gap-[5rem]">
                   <p className="text-gray-400 text-sm mb-6 uppercase tracking-wide">
@@ -226,6 +242,63 @@ export const Testimonials = () => {
               </div>
             ))
           )}
+        </div>
+
+        {/* Navigation Controls */}
+        <div className="flex justify-center items-center mt-8 px-4 space-x-6">
+          {/* Previous Button */}
+          <button
+            onClick={handlePrevious}
+            disabled={currentIndex === 0}
+            className="bg-[#3F3F3F] hover:bg-red-600 disabled:bg-gray-400 disabled:cursor-not-allowed rounded-full p-2 transition-all duration-200"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft size={20} />
+          </button>
+
+          {/* Three-Dot Indicator */}
+          <div className="flex items-center space-x-2">
+            {[0, 1, 2].map((position) => {
+              let dotIndex;
+              let isVisible = true;
+
+              if (totalTestimonials <= 3) {
+                dotIndex = position;
+                isVisible = position < totalTestimonials;
+              } else if (currentIndex <= 1) {
+                dotIndex = position;
+              } else if (currentIndex >= totalTestimonials - 2) {
+                dotIndex = totalTestimonials - 3 + position;
+              } else {
+                dotIndex = currentIndex - 1 + position;
+              }
+
+              if (!isVisible) return null;
+
+              return (
+                <button
+                  key={position}
+                  onClick={() => scrollToTestimonial(dotIndex)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
+                    dotIndex === currentIndex
+                      ? "bg-red-500 scale-125"
+                      : "bg-gray-600 hover:bg-gray-500"
+                  }`}
+                  aria-label={`Go to testimonial ${dotIndex + 1}`}
+                />
+              );
+            })}
+          </div>
+
+          {/* Next Button */}
+          <button
+            onClick={handleNext}
+            disabled={currentIndex === totalTestimonials - 1}
+            className="bg-[#3F3F3F] hover:bg-red-600 disabled:bg-gray-400 disabled:cursor-not-allowed rounded-full p-2 transition-all duration-200 cursor-pointer"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight size={20} />
+          </button>
         </div>
       </div>
     </div>

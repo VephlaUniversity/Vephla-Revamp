@@ -8,6 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import { TermsAndService } from "./components/Terms";
 import { PrivacyPolicy } from "./components/Privacy";
 import { About } from "./components/about/About";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const location = useLocation();
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Nav />
       <div className="app-container">
         <AnimatePresence exitBeforeEnter>

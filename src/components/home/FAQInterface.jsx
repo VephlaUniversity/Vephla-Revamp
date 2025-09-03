@@ -105,7 +105,7 @@ export const FAQInterface = () => {
     "Vephla Dailys": [
       {
         question: "Can I contribute an article?",
-        answer: `Kindly send a mail to  <a href="mailto:daily@vephla.com" class="text-red-500 hover:text-red-600 underline">Vephla Daily</a>.`,
+        answer: `Yes, you can contribute an article by sending an e-mail to  <a href="mailto:daily@vephla.com" class="text-red-500 hover:text-red-600 underline">Vephla Daily</a>.`,
       },
       {
         question: "What does vephla daily talk about?",
