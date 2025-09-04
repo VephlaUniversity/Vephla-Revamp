@@ -9,7 +9,7 @@ export const ContactPage = () => {
     phone: "",
     message: "",
     services: [],
-    otherService: "", // Added for custom service input
+    otherService: "",
   });
 
   const [errors, setErrors] = useState({});

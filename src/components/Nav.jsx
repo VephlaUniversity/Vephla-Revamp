@@ -1,5 +1,6 @@
 import logo from "/images/logo.png";
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   Menu,
   X,
@@ -185,6 +186,36 @@ export const Nav = () => {
       },
     },
   };
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigateToSection = () => {
+    if (location.pathname === "/") {
+      const element = document.getElementById("solutions");
+      if (element) {
+        const headerHeight = 130;
+        const elementPosition = element.offsetTop - headerHeight;
+        window.scrollTo({
+          top: elementPosition,
+          behavior: "smooth",
+        });
+      }
+    } else {
+      navigate("/", { replace: true });
+      setTimeout(() => {
+        const element = document.getElementById("solutions");
+        if (element) {
+          const headerHeight = 130;
+          const elementPosition = element.offsetTop - headerHeight;
+          window.scrollTo({
+            top: elementPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 500);
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
     <nav
@@ -268,11 +299,12 @@ export const Nav = () => {
 
           {/* CTA Button - Hidden on medium screens and below */}
           <div className="hidden md:block">
-            <a href="#solutions">
-              <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer">
-                Explore our solutions
-              </button>
-            </a>
+            <button
+              onClick={handleNavigateToSection}
+              className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer"
+            >
+              Explore our solutions
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -566,11 +598,12 @@ export const Nav = () => {
 
               {/* Mobile CTA Button */}
               <motion.div variants={itemVariants} className="px-3">
-                <a href="#solutions">
-                  <button className="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer">
-                    Explore our solutions
-                  </button>
-                </a>
+                <button
+                  onClick={handleNavigateToSection}
+                  className="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer"
+                >
+                  Explore our solutions
+                </button>
               </motion.div>
             </div>
           </motion.div>

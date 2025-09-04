@@ -114,7 +114,12 @@ export const Solutions = () => {
 
   return (
     <div className="min-h-screen bg-[#0d0d0d] p-6 lg:p-12">
-      <div id="solutions" className="max-w-7xl mx-auto">
+      {/* Added scroll-margin-top using inline style to account for fixed navbar */}
+      <div
+        id="solutions"
+        className="max-w-7xl mx-auto"
+        style={{ scrollMarginTop: "80px" }}
+      >
         <h1 className="text-4xl lg:text-5xl font-bold text-white mb-2">
           Our <span className="text-red-500">Solutions</span>
         </h1>
