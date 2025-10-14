@@ -9,6 +9,9 @@ import { TermsAndService } from "./components/Terms";
 import { PrivacyPolicy } from "./components/Privacy";
 import { About } from "./components/about/About";
 import ScrollToTop from "./components/ScrollToTop";
+import DesignIntern from "./components/vacancies/DesignIntern";
+import OperationsIntern from "./components/vacancies/OperationsIntern";
+import { Vacancies } from "./components/vacancies/Vacancies";
 
 function App() {
   const location = useLocation();
@@ -27,6 +30,12 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/terms" element={<TermsAndService />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/design-media-internship" element={<DesignIntern />} />
+            <Route
+              path="/operations-internship"
+              element={<OperationsIntern />}
+            />
+            <Route path="/vacancies" element={<Vacancies />} />
             {/* Catch-all for 404 */}
             <Route
               path="*"
