@@ -100,13 +100,13 @@ export const Nav = () => {
       icon: <User className="w-6 h-6" />,
       title: "OandR",
       description: "Operations and Resources",
-      link: "http://dashboard.vephla.com?utm_source=chatgpt.com",
+      link: "http://dashboard.vephla.com",
     },
     {
       icon: <LogIn className="w-6 h-6" />,
       title: "STAFF LOGIN",
       description: "Access your staff account",
-      link: "http://staff.vephla.com",
+      link: "http://staff.vephla.com/login",
     },
     {
       icon: <UserPlus className="w-6 h-6" />,
