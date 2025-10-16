@@ -21,6 +21,7 @@ import {
   User,
   LogIn,
   UserPlus,
+  CheckSquare2Icon,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -146,6 +147,12 @@ export const Nav = () => {
       title: "JOIN US",
       description: "Build your career with us",
       link: "http://careers.vephla.com",
+    },
+    {
+      icon: <CheckSquare2Icon className="w-6 h-6" />,
+      title: "CHECK STATUS",
+      description: "Job Application Status",
+      link: "http://careers.vephla.com/status.html",
     },
   ];
 
