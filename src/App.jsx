@@ -12,6 +12,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import DesignIntern from "./components/vacancies/DesignIntern";
 import OperationsIntern from "./components/vacancies/OperationsIntern";
 import { Vacancies } from "./components/vacancies/Vacancies";
+import SoftwareExecutive from "./components/vacancies/SoftwareExecutive";
+import DataAnalyticsIntern from "./components/vacancies/DataAnalyticsIntern";
 
 function App() {
   const location = useLocation();
@@ -34,6 +36,14 @@ function App() {
             <Route
               path="/operations-internship"
               element={<OperationsIntern />}
+            />
+            <Route
+              path="/software-engineering-executive"
+              element={<SoftwareExecutive />}
+            />
+            <Route
+              path="/data-analytics-internship"
+              element={<DataAnalyticsIntern />}
             />
             <Route path="/vacancies" element={<Vacancies />} />
             {/* Catch-all for 404 */}

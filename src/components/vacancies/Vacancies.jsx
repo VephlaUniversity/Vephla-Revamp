@@ -24,6 +24,22 @@ export const Vacancies = () => {
         "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop&crop=center",
       link: "/operations-internship",
     },
+    {
+      id: 3,
+      title: "Software Engineering Executive (Full Stack)",
+      description:
+        "This role involves building modern web and mobile products, improving internal platforms, and contributing to scalable architectures that serve both commercial...",
+      image: "/images/software.jpg",
+      link: "/software-engineering-executive",
+    },
+    {
+      id: 4,
+      title: "Data Analytics Intern",
+      description:
+        "This role is designed to build strong analytical capability while contributing directly to real business insights across our conglomerate. You will support our anal...",
+      image: "/images/data.jpg",
+      link: "/data-analytics-internship",
+    },
   ];
 
   const filteredArticles = useMemo(() => {
@@ -108,16 +124,6 @@ export const Vacancies = () => {
             <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-center mb-8 sm:mb-12 lg:mb-16 tracking-tight leading-tight max-w-6xl">
               Shaping The Future of Tech
             </h1>
-
-            {/* <div className="flex items-center justify-center w-[70%] pb-16">
-            <div className="relative">
-              <img
-                src="9.png"
-                alt="category-image"
-                className="w-full object-contain  drop-shadow-2xl"
-              />
-            </div>
-          </div> */}
           </div>
         </div>
 
