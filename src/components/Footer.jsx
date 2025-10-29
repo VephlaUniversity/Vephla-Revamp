@@ -175,9 +175,6 @@ export const Footer = () => {
               CONTACT LINE
             </h3>
             <div className="space-y-2 md:space-y-4">
-              <p className="text-gray-300 text-sm md:text-base">
-                +234-701-361-7059
-              </p>
               <a
                 href="mailto:Hello@Vephla.com"
                 className="text-gray-300 hover:text-white transition-colors underline text-sm md:text-base break-all"
@@ -185,12 +182,6 @@ export const Footer = () => {
                 Hello@Vephla.com
               </a>
               <br />
-              <a
-                href="mailto:Emicentre0@gmail.com"
-                className="text-gray-300 hover:text-white transition-colors underline text-sm md:text-base break-all"
-              >
-                Emicentre0@gmail.com
-              </a>
             </div>
           </div>
 

@@ -179,21 +179,6 @@ export const ContactPage = () => {
                   >
                     Hello@vephla.com <Mails className="w-5 h-5 ml-2" />
                   </a>
-                  <br />
-                  <a
-                    href="mailto:Emicentre0@gmail.com"
-                    className="inline-flex items-center text-white hover:text-red-400 transition-colors underline"
-                  >
-                    Emicentre0@gmail.com <Mails className="w-5 h-5 ml-2" />
-                  </a>
-                  <br />
-                  <a
-                    href="tel:+234-701-361-7059"
-                    className="inline-flex items-center text-white hover:text-red-400 transition-colors underline"
-                  >
-                    +234-701-361-7059
-                    <Phone className="w-5 h-5 ml-2" />
-                  </a>
                 </div>
               </div>
 
