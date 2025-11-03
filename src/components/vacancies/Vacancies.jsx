@@ -40,6 +40,22 @@ export const Vacancies = () => {
       image: "/images/data.jpg",
       link: "/data-analytics-internship",
     },
+    {
+      id: 5,
+      title: "Cybersecurity Executive",
+      description:
+        "Vephla Group is hiring a Cybersecurity Executive to support protection of our infrastructure, implement security best practices, strengthen our security posture...",
+      image: "/images/cyber-1.jpg",
+      link: "/cybersecurity-executive",
+    },
+    {
+      id: 6,
+      title: "Cybersecurity Intern",
+      description:
+        "We are recruiting a Cybersecurity Intern for a structured 10 month internship at Vephla Group. You will work with our cybersecurity team to strengthen system....",
+      image: "/images/cyber-2.jpg",
+      link: "/cybersecurity-internship",
+    },
   ];
 
   const filteredArticles = useMemo(() => {

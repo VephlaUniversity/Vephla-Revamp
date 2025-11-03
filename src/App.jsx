@@ -15,6 +15,8 @@ import { Vacancies } from "./components/vacancies/Vacancies";
 import SoftwareExecutive from "./components/vacancies/SoftwareExecutive";
 import DataAnalyticsIntern from "./components/vacancies/DataAnalyticsIntern";
 import { useEffect } from "react";
+import CybersecurityExecutive from "./components/vacancies/CybersecurityExecutive";
+import CybersecurityIntern from "./components/vacancies/CybersecurityIntern";
 
 // Custom hook to set page title
 function usePageTitle(title) {
@@ -66,6 +68,14 @@ function SoftwareExecutiveWithTitle() {
 function DataAnalyticsInternWithTitle() {
   usePageTitle("Data Analytics Internship | Vephla Group ®");
   return <DataAnalyticsIntern />;
+}
+function CybersecurityExecutiveWithTitle() {
+  usePageTitle("Cybersecurity Executive | Vephla Group ®");
+  return <CybersecurityExecutive />;
+}
+function CybersecurityInternWithTitle() {
+  usePageTitle("Cybersecurity Internship | Vephla Group ®");
+  return <CybersecurityIntern />;
 }
 
 function VacanciesWithTitle() {
@@ -120,6 +130,14 @@ function App() {
             <Route
               path="/data-analytics-internship"
               element={<DataAnalyticsInternWithTitle />}
+            />
+            <Route
+              path="/cybersecurity-executive"
+              element={<CybersecurityExecutiveWithTitle />}
+            />
+            <Route
+              path="/cybersecurity-internship"
+              element={<CybersecurityInternWithTitle />}
             />
             <Route path="/vacancies" element={<VacanciesWithTitle />} />
             <Route path="*" element={<NotFoundWithTitle />} />
