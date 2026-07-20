@@ -1,4 +1,4 @@
-import logo from "/images/logo.png";
+import logo from "/images/favicon.png";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
@@ -276,9 +276,17 @@ export const Nav = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <div className="flex items-center">
-              <div className="flex items-center justify-center">
-                <Link to="/" onClick={closeDropdowns}>
-                  <img src={logo} alt="" />
+              <div>
+                <Link
+                  className="flex  items-center justify-center gap-0.5"
+                  to="/"
+                  onClick={closeDropdowns}
+                >
+                  <img className="w-[40px]" src={logo} alt="logo" />
+                  <div className="flex flex-col text-[10px] leading-2.5">
+                    <span className="font-bold">Vephla</span>
+                    <span className="font-light ml-1.5">Group</span>
+                  </div>
                 </Link>
               </div>
             </div>
