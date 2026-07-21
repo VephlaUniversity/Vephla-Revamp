@@ -284,8 +284,10 @@ export const Nav = () => {
                 >
                   <img className="w-[40px]" src={logo} alt="logo" />
                   <div className="flex flex-col text-[10px] leading-2.5">
-                    <span className="font-bold">Vephla</span>
-                    <span className="font-light ml-1.5">Group</span>
+                    <span className="font-extrabold">Vephla</span>
+                    <span className="font-extralight text-[0.58rem]">
+                      Group LLC
+                    </span>
                   </div>
                 </Link>
               </div>
