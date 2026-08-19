@@ -7,7 +7,7 @@ import gsap from "gsap";
 // red-500, matching the original inline <span className="text-red-500">.
 const HEADLINE_WORDS = [
   { text: "Empowering" },
-  { text: "Innovation" },
+  { text: "Innovation", accent: true },
   { text: "Across" },
 ];
 
@@ -272,7 +272,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative flex items-center justify-center min-h-screen overflow-hidden">
       <style>{`
         .word-outer {
           display: inline-block;
@@ -292,12 +292,12 @@ export const Hero = () => {
         .in-view .word-inner { transform: translateY(0); opacity: 1; }
 
         .typewriter-line { display: block; }
-        .typewriter-text { color: red-500 white-space: nowrap; }
+        .typewriter-text { color: white; white-space: nowrap; }
         .typewriter-caret {
           display: inline-block;
           width: 0.06em;
           height: 0.85em;
-          background: #ef4444; /* red-500 */
+          background: #fff;
           margin-left: 0.06em;
           vertical-align: -0.08em;
           opacity: 0;
@@ -327,7 +327,7 @@ export const Hero = () => {
       <div
         className={`relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto ${inView ? "in-view" : ""}`}
       >
-        <h1 className="text-2xl md:text-3xl lg:text-3xl xl:text-5xl font-bold text-white mb-6 sm:mb-8 leading-tight px-2">
+        <h1 className="px-2 mb-6 text-2xl font-bold leading-tight text-white md:text-3xl lg:text-3xl xl:text-5xl sm:mb-8">
           {HEADLINE_WORDS.map((w, i) => (
             <span key={i} className="word-outer">
               <span
@@ -338,14 +338,14 @@ export const Hero = () => {
               </span>
             </span>
           ))}
-          <span className="typewriter-line text-red-500">
+          <span className="text-red-500 typewriter-line">
             <span className="typewriter-text" ref={typewriterRef}></span>
             <span className="typewriter-caret"></span>
           </span>
         </h1>
 
         <p
-          className="hero-fade text-base sm:text-lg md:text-xl lg:text-xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4"
+          className="max-w-4xl px-4 mx-auto mb-8 text-base leading-relaxed text-gray-300 hero-fade sm:text-lg md:text-xl lg:text-xl sm:mb-12"
           style={{ "--fd": "0.6s" }}
         >
           We are a conglomerate focused on building and scaling innovative
@@ -358,16 +358,16 @@ export const Hero = () => {
 
         {/* Buttons */}
         <div
-          className="hero-fade flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center max-w-sm sm:max-w-none mx-auto px-4"
+          className="flex flex-col items-center justify-center max-w-sm gap-3 px-4 mx-auto hero-fade sm:flex-row sm:gap-4 md:gap-6 sm:max-w-none"
           style={{ "--fd": "0.75s" }}
         >
           <a href="#solutions">
-            <button className="w-full sm:w-auto bg-red-500 hover:bg-red-600 text-white font-semibold py-3 sm:py- px-6 sm:px-8 rounded-lg transition-all duration-300  hover:shadow-2xl hover:shadow-red-600/25 text-sm sm:text-base lg:text-lg cursor-pointer">
+            <button className="w-full px-6 py-3 text-sm font-semibold text-white transition-all duration-300 bg-red-500 rounded-lg cursor-pointer sm:w-auto hover:bg-red-600 sm:py- sm:px-8 hover:shadow-2xl hover:shadow-red-600/25 sm:text-base lg:text-lg">
               Explore our solutions
             </button>
           </a>
           <Link to="/contact">
-            <button className="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white hover:text-black font-semibold py-3 sm:py-3 px-6 sm:px-8 rounded-lg transition-all duration-300  hover:shadow-2xl hover:shadow-white/25 text-sm sm:text-base lg:text-lg cursor-pointer">
+            <button className="w-full px-6 py-3 text-sm font-semibold text-white transition-all duration-300 bg-transparent border-2 border-white rounded-lg cursor-pointer sm:w-auto hover:bg-white hover:text-black sm:py-3 sm:px-8 hover:shadow-2xl hover:shadow-white/25 sm:text-base lg:text-lg">
               Partner with Vephla
             </button>
           </Link>
