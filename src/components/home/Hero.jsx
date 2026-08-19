@@ -1,11 +1,86 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import * as THREE from "three";
 import gsap from "gsap";
 
+// First line of the h1: word-by-word reveal. `accent: true` renders in
+// red-500, matching the original inline <span className="text-red-500">.
+const HEADLINE_WORDS = [
+  { text: "Empowering" },
+  { text: "Innovation" },
+  { text: "Across" },
+];
+
+// Second line of the h1: typewriter that cycles through these, so the
+// full sentence reads "Empowering Innovation Across [cycling word]".
+const TYPEWRITER_WORDS = [
+  "Energy",
+  "Technology",
+  "AI Platforms",
+  "Talent Development",
+  "Digital Ecosystems",
+];
+
 export const Hero = () => {
   const canvasHostRef = useRef(null);
+  const typewriterRef = useRef(null);
+  const [inView, setInView] = useState(false);
 
+  // --- Reveal trigger: word-reveal + typewriter start shortly after mount ---
+  useEffect(() => {
+    const id = setTimeout(() => setInView(true), 120);
+    return () => clearTimeout(id);
+  }, []);
+
+  // --- Typewriter loop (runs once inView flips true) ---
+  useEffect(() => {
+    if (!inView) return;
+    const el = typewriterRef.current;
+    if (!el) return;
+
+    const prefersReducedMotion = matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+    let timeoutId;
+
+    if (prefersReducedMotion) {
+      el.textContent = TYPEWRITER_WORDS[0];
+      return;
+    }
+
+    const tick = () => {
+      const current = TYPEWRITER_WORDS[wordIndex % TYPEWRITER_WORDS.length];
+      if (!deleting) {
+        charIndex++;
+        el.textContent = current.slice(0, charIndex);
+        if (charIndex === current.length) {
+          deleting = true;
+          timeoutId = setTimeout(tick, 1400);
+          return;
+        }
+        timeoutId = setTimeout(tick, 55 + Math.random() * 45);
+      } else {
+        charIndex--;
+        el.textContent = current.slice(0, charIndex);
+        if (charIndex === 0) {
+          deleting = false;
+          wordIndex++;
+          timeoutId = setTimeout(tick, 300);
+          return;
+        }
+        timeoutId = setTimeout(tick, 28);
+      }
+    };
+
+    timeoutId = setTimeout(tick, 500);
+    return () => clearTimeout(timeoutId);
+  }, [inView]);
+
+  // --- Existing 3D cube background (unchanged) ---
   useEffect(() => {
     const container = canvasHostRef.current;
     if (!container) return;
@@ -13,7 +88,7 @@ export const Hero = () => {
     const isMobile = matchMedia("(max-width:768px)").matches;
 
     const scene = new THREE.Scene();
-    scene.background = null; // transparent so the page bg / overlay show through
+    scene.background = null;
 
     const camera = new THREE.PerspectiveCamera(
       40,
@@ -34,7 +109,6 @@ export const Hero = () => {
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     container.appendChild(renderer.domElement);
 
-    // --- Build a cube lattice of points (surface shell only) ---
     const DIV = isMobile ? 6 : 9;
     const SIZE = 3.2;
     const pts = [];
@@ -80,7 +154,6 @@ export const Hero = () => {
     });
     const points = new THREE.Points(pointGeo, pointMat);
 
-    // --- Nearest-neighbor connections (static topology, animated opacity) ---
     const maxDist = (SIZE / DIV) * 1.05;
     const lineVerts = [];
     for (let i = 0; i < pts.length; i++) {
@@ -116,7 +189,6 @@ export const Hero = () => {
     scene.add(group);
     scene.add(new THREE.AmbientLight(0x223344, 0.4));
 
-    // --- Interaction ---
     const pointer = { x: 0, y: 0 };
     const handlePointerMove = (e) => {
       pointer.x = (e.clientX / innerWidth) * 2 - 1;
@@ -130,7 +202,6 @@ export const Hero = () => {
     };
     addEventListener("scroll", handleScroll, { passive: true });
 
-    // --- Entrance ---
     group.scale.setScalar(0.001);
     gsap.to(group.scale, {
       x: 1,
@@ -141,7 +212,6 @@ export const Hero = () => {
       delay: 0.15,
     });
 
-    // --- Animate: infinite rotation + pulse ---
     const clock = new THREE.Clock();
     let paused = false;
     let rafId;
@@ -203,22 +273,81 @@ export const Hero = () => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <style>{`
+        .word-outer {
+          display: inline-block;
+          overflow: hidden;
+          vertical-align: top;
+          padding-bottom: 0.12em;
+          margin-bottom: -0.12em;
+          margin-right: 0.28em; /* replaces manual space characters between words */
+        }
+        .word-inner {
+          display: inline-block;
+          transform: translateY(115%);
+          opacity: 0;
+          transition: transform 0.75s cubic-bezier(0.16,1,0.3,1), opacity 0.6s ease;
+          transition-delay: var(--d, 0ms);
+        }
+        .in-view .word-inner { transform: translateY(0); opacity: 1; }
+
+        .typewriter-line { display: block; }
+        .typewriter-text { color: red-500 white-space: nowrap; }
+        .typewriter-caret {
+          display: inline-block;
+          width: 0.06em;
+          height: 0.85em;
+          background: #ef4444; /* red-500 */
+          margin-left: 0.06em;
+          vertical-align: -0.08em;
+          opacity: 0;
+        }
+        .in-view .typewriter-caret { animation: heroBlink 0.9s steps(1) infinite; }
+        @keyframes heroBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .hero-fade {
+          opacity: 0;
+          transform: translateY(8px);
+          transition: opacity 0.6s ease var(--fd, 0.5s), transform 0.6s ease var(--fd, 0.5s);
+        }
+        .in-view .hero-fade { opacity: 1; transform: translateY(0); }
+
+        @media (prefers-reduced-motion: reduce) {
+          .word-inner, .hero-fade { transition-duration: 0.01ms !important; }
+          .typewriter-caret { animation: none !important; opacity: 1 !important; }
+        }
+      `}</style>
+
       {/* 3D animated background */}
       <div ref={canvasHostRef} className="absolute inset-0 bg-[#05070A]">
-        {/* Dark overlay to maintain readability, matches original design */}
         <div className="absolute inset-0 bg-[#0d0d0d]/60 pointer-events-none"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      <div
+        className={`relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto ${inView ? "in-view" : ""}`}
+      >
         <h1 className="text-2xl md:text-3xl lg:text-3xl xl:text-5xl font-bold text-white mb-6 sm:mb-8 leading-tight px-2">
-          Empowering <span className="text-red-500">Innovation</span> Across
-          Energy,
-          <br className="hidden sm:block" />
-          Technology, And Digital Ecosystems
+          {HEADLINE_WORDS.map((w, i) => (
+            <span key={i} className="word-outer">
+              <span
+                className={`word-inner ${w.accent ? "text-red-500" : ""}`}
+                style={{ "--d": `${i * 70}ms` }}
+              >
+                {w.text}
+              </span>
+            </span>
+          ))}
+          <span className="typewriter-line text-red-500">
+            <span className="typewriter-text" ref={typewriterRef}></span>
+            <span className="typewriter-caret"></span>
+          </span>
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl lg:text-xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4">
+        <p
+          className="hero-fade text-base sm:text-lg md:text-xl lg:text-xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4"
+          style={{ "--fd": "0.6s" }}
+        >
           We are a conglomerate focused on building and scaling innovative
           solutions across key sectors. From smart funding and oil & gas
           solutions to AI platforms, talent development,
@@ -228,7 +357,10 @@ export const Hero = () => {
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center max-w-sm sm:max-w-none mx-auto px-4">
+        <div
+          className="hero-fade flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center max-w-sm sm:max-w-none mx-auto px-4"
+          style={{ "--fd": "0.75s" }}
+        >
           <a href="#solutions">
             <button className="w-full sm:w-auto bg-red-500 hover:bg-red-600 text-white font-semibold py-3 sm:py- px-6 sm:px-8 rounded-lg transition-all duration-300  hover:shadow-2xl hover:shadow-red-600/25 text-sm sm:text-base lg:text-lg cursor-pointer">
               Explore our solutions

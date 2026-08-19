@@ -1,4 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", sans-serif;
+}
+
 * {
   scroll-behavior: smooth;
 }
