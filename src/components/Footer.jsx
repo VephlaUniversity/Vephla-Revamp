@@ -193,7 +193,7 @@ export const Footer = () => {
             <div className="space-y-4 md:space-y-6 text-gray-300 text-xs md:text-sm">
               <div>
                 <p className="font-medium text-white">West Africa:</p>
-                <p>51, Olarenwaju Street, Akoka, Lagos Mainland</p>
+                <p>51 Olanrewaju Street, Akoka</p>
                 <p>Lagos.</p>
               </div>
 
