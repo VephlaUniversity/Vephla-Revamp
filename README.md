@@ -4,6 +4,23 @@ A responsive corporate website for Vephla Group, built to showcase the group's p
 
 **Live website:** https://vephla.com
 
+## Start here
+
+Use this guide based on what you need:
+
+| If you want to... | Read this |
+| --- | --- |
+| Run the website locally | [Getting started](#getting-started) |
+| Find the page or route you need | [Application map](#application-map) |
+| Locate a component or feature | [Where to make changes](#where-to-make-changes) |
+| Understand the repository layout | [Project structure](#project-structure) |
+| Change homepage content | [`src/components/home/`](#srccomponentshome) |
+| Change the navigation or footer | [`Nav.jsx`](#navigation) and [`Footer.jsx`](#footer) |
+| Update a vacancy | [`src/components/vacancies/`](#srccomponentsvacancies) |
+| Change the contact form | [Contact form integration](#contact-form-integration) |
+| Build or deploy the site | [Building for production](#building-for-production) |
+| Troubleshoot a common issue | [Troubleshooting](#troubleshooting) |
+
 ## Table of contents
 
 - [Overview](#overview)
@@ -11,12 +28,14 @@ A responsive corporate website for Vephla Group, built to showcase the group's p
 - [Technology stack](#technology-stack)
 - [Getting started](#getting-started)
 - [Available scripts](#available-scripts)
-- [Application routes](#application-routes)
+- [Application map](#application-map)
+- [Where to make changes](#where-to-make-changes)
 - [Project structure](#project-structure)
 - [Contact form integration](#contact-form-integration)
 - [Assets](#assets)
 - [Building for production](#building-for-production)
 - [Deployment](#deployment)
+- [Troubleshooting](#troubleshooting)
 - [Development notes](#development-notes)
 - [Contributing](#contributing)
 - [License](#license)
@@ -94,6 +113,14 @@ Vite will print the local development URL, normally `http://localhost:5173`. The
 npm run lint
 ```
 
+For a complete local setup/build check:
+
+```bash
+npm ci
+npm run lint
+npm run dev
+```
+
 ## Available scripts
 
 | Command | Description |
@@ -103,23 +130,65 @@ npm run lint
 | `npm run preview` | Preview the production build locally |
 | `npm run lint` | Run ESLint across the project |
 
-## Application routes
+## Application map
 
-| Route | Page |
-| --- | --- |
-| `/` | Home |
-| `/about` | About Vephla Group |
-| `/contact` | Contact and inquiry form |
-| `/vacancies` | Vacancy search and listings |
-| `/design-media-internship` | Design and Media Internship |
-| `/operations-internship` | Operations Internship |
-| `/software-engineering-executive` | Software Engineering Executive |
-| `/data-analytics-internship` | Data Analytics Internship |
-| `/cybersecurity-executive` | Cybersecurity Executive |
-| `/cybersecurity-internship` | Cybersecurity Internship |
-| `/terms` | Terms of Service |
-| `/privacy` | Privacy Policy |
-| `*` | Not-found page with a link to the homepage |
+Routes are registered in `src/App.jsx`. Each route also sets a page-specific browser title.
+
+| Route | Component | Page purpose |
+| --- | --- | --- |
+| `/` | `components/Home.jsx` | Main landing page |
+| `/about` | `components/about/About.jsx` | Company and ecosystem overview |
+| `/contact` | `components/contact/Contact.jsx` | Inquiry form and contact information |
+| `/vacancies` | `components/vacancies/Vacancies.jsx` | Searchable role listings |
+| `/design-media-internship` | `components/vacancies/DesignIntern.jsx` | Design and Media Internship |
+| `/operations-internship` | `components/vacancies/OperationsIntern.jsx` | Operations Internship |
+| `/software-engineering-executive` | `components/vacancies/SoftwareExecutive.jsx` | Software Engineering Executive |
+| `/data-analytics-internship` | `components/vacancies/DataAnalyticsIntern.jsx` | Data Analytics Internship |
+| `/cybersecurity-executive` | `components/vacancies/CybersecurityExecutive.jsx` | Cybersecurity Executive |
+| `/cybersecurity-internship` | `components/vacancies/CybersecurityIntern.jsx` | Cybersecurity Internship |
+| `/terms` | `components/Terms.jsx` | Terms of Service |
+| `/privacy` | `components/Privacy.jsx` | Privacy Policy |
+| `*` | `App.jsx` not-found view | 404-style fallback |
+
+## Where to make changes
+
+### Application shell
+
+- `src/main.jsx` starts React and installs `BrowserRouter`
+- `src/App.jsx` controls routes, page titles, scrolling, navigation, footer visibility, and not-found behavior
+- `src/AnimatedPage.jsx` provides shared page-enter and page-exit motion
+
+### `src/components/home`
+
+- `Hero.jsx` — homepage hero and primary calls to action
+- `Slider.jsx` — logo/carousel content
+- `Stat.jsx` — homepage statistics
+- `Solutions.jsx` — energy, education, software, printing, and other service cards
+- `Testimonial.jsx` — customer or user testimonials
+- `FAQInterface.jsx` — expandable FAQ content
+
+Update `src/components/Home.jsx` to add or remove sections from the homepage composition.
+
+### Navigation
+
+`src/components/Nav.jsx` contains desktop/mobile menu entries, career links, solution links, and external group portals.
+
+### Footer
+
+`src/components/Footer.jsx` contains quick links, Vephla solutions, social links, contact details, and office addresses.
+
+### `src/components/vacancies`
+
+- `Vacancies.jsx` contains the vacancy cards and client-side search. Add or edit an article in this file to change the vacancy listing.
+- `VacancyLayout.jsx` supplies the shared structure for vacancy detail pages.
+- The remaining files contain role-specific content and application links.
+
+### About, contact, and policies
+
+- `src/components/about/` — about page sections
+- `src/components/contact/Contact.jsx` — contact details and form submission
+- `src/components/Terms.jsx` — terms of service
+- `src/components/Privacy.jsx` — privacy policy
 
 ## Project structure
 
@@ -229,6 +298,34 @@ Before deploying:
 - The navigation includes several external Vephla product domains
 - The vacancy listing currently uses a local array of role data and client-side search
 - `Operations Intern` and the vacancy listing use an Unsplash-hosted image; production deployments should account for external network availability
+
+## Troubleshooting
+
+### `npm run dev` does not start
+
+- Confirm Node.js and npm are installed: `node --version` and `npm --version`
+- Reinstall dependencies from the lockfile: `npm ci`
+- Stop another process using the default Vite port or let Vite choose another port
+
+### A direct route shows 404 in production
+
+Configure SPA fallback rewrites so application routes such as `/about` and `/vacancies` serve `index.html`. This is a hosting configuration issue, not a React route registration issue.
+
+### Contact form submissions fail
+
+- Check browser developer tools for the request to `https://vephla.com/backend/contact.php`
+- Confirm CORS, endpoint availability, and server-side validation
+- Verify that all required fields and at least one service are selected
+
+### Images or videos do not load
+
+- Confirm files exist under `public/images/` or `public/video/`
+- Verify that component URLs begin with `/` for public assets
+- Check external Unsplash or third-party URLs for availability
+
+### ESLint reports a component export warning
+
+The project uses React Fast Refresh rules. Keep components and exported helpers separated when a new warning appears, and run `npm run lint` after the change.
 
 ## Contributing
 
